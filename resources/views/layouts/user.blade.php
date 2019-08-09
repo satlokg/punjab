@@ -16,15 +16,15 @@
 	============================================ -->
    
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.min.css') }}">
     <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="assets/css/icons.min.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/icons.min.css') }}">
     <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/plugins.css') }}">
     <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}">
     <!-- Modernizer JS -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="{{ asset('public/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 </head>
 
 <body>
@@ -307,18 +307,7 @@
         </div>
     </div>
 </header>
-<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
-    <div class="container">
-        <div class="breadcrumb-content text-center">
-            <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li class="active">Shop </li>
-            </ul>
-        </div>
-    </div>
-</div>
+
 <div class="shop-area pt-95 pb-100">
     <div class="container">
         <div class="row flex-row-reverse">
@@ -1192,17 +1181,17 @@
 ============================================ -->
 
 <!-- jQuery JS -->
-<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="{{ asset('public/assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
 <!-- Popper JS -->
-<script src="assets/js/popper.min.js"></script>
+<script src="{{ asset('public/assets/js/popper.min.js') }}"></script>
 <!-- Bootstrap JS -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{ asset('public/assets/js/bootstrap.min.js') }}"></script>
 <!-- Plugins JS -->
-<script src="assets/js/plugins.js"></script>
+<script src="{{ asset('public/assets/js/plugins.js') }}"></script>
 <!-- Ajax Mail -->
-<script src="assets/js/ajax-mail.js"></script>
+<script src="{{ asset('public/assets/js/ajax-mail.js') }}"></script>
 <!-- Main JS -->
-<script src="assets/js/main.js"></script>
+<script src="{{ asset('public/assets/js/main.js') }}"></script>
 
 </body>
 

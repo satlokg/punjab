@@ -25,6 +25,7 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('templates.dashboard-v2');
+        //dd("hello");
+        return view('user.index');
     }
 }

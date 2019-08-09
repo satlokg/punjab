@@ -31,7 +31,17 @@ Route::prefix('admin')->group(function() {
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/dashboard', 'admin\AdminController@index')->name('admin.dashboard');
 });
+//User Route
 
+ Route::get('myaccount', 'User\UserController@myaccount')->name('user-myaccount');
+   Route::get('signout', 'User\UserController@logout')->name('user-logout');
+  Route::get('/user-collection','User\UserController@collection')->name('user-collection');
+  Route::get('/user-about','User\UserController@about')->name('user-about');
+  Route::get('/user-contact','User\UserController@contact')->name('user-contact');
+  //Route::get('/usersregister','User\UserController@register')->name('usersregister');
+//Route::get('registar_learner', 'FrountedControllers@registar_learner');
+   // Route::post('signup_learner', 'FrountedControllers@signup_learner');
+//
 Route::prefix('shg')->group(function() {
     Route::get('/login', 'Auth\ShgLoginController@showLoginForm')->name('shg.login');
     Route::post('/login', 'Auth\ShgLoginController@userLogin')->name('shg.login.submit');

@@ -7,10 +7,20 @@ use App\Http\Controllers\Controller;
 //
 use Auth;
 //
-use App\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Session;
+use DateTime;
+use links;
+use Toast;
+use App\Role;
+use Mail;
+use PDF;
+use Response;
+use App\PasswordReset;
 
 //
 class UserController extends Controller
@@ -19,8 +29,12 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function register(){
+                 dd("heeee"); die();
+  }
     public function index(){
-    	dd("xxxx");
+    	//dd("xxxx");
         return view('templates.menus');
     }
     public  function contact(){
@@ -49,7 +63,5 @@ class UserController extends Controller
     return view('user.myaccount');
   }
 
-  public function register1(){
-                 dd("heeee");
-  }
+  
 }

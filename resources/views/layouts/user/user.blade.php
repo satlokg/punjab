@@ -28,7 +28,7 @@
 </head>
 
 <body>
-@include('layouts.user.header')
+@include('uprt.header')
 <div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
     <div class="container">
         <div class="breadcrumb-content text-center">
@@ -44,13 +44,13 @@
 <div class="shop-area pt-95 pb-100">
     <div class="container">
         <div class="row flex-row">
-            @include('layouts.user.sidebar')
+            @include('uprt.sidebar')
             @yield('content')
             
         </div>
     </div>
 </div>
-@include('layouts.user.footer')
+@include('uprt.footer')
 
 
 <!-- Modal -->

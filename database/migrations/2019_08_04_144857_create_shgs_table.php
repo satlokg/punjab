@@ -18,9 +18,11 @@ class CreateShgsTable extends Migration
             $table->string('name');
             $table->string('contact');
             $table->string('password');
+            $table->string('status');
             $table->integer('district_id');
             $table->integer('block_id');
             $table->integer('village_id');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

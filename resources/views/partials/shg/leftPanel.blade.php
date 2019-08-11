@@ -18,18 +18,16 @@
         <ul class="sidebar-menu" data-widget="tree">
            
             <li class="active treeview menu-open">
-                <a href="#">
+                <a href="{!! url('/dashboard') !!}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="{!! url('/dashboard') !!}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                </ul>
+              
             </li>
-            <li><a href="{!! url('/menus') !!}"><i class="fa fa-dashboard"></i> Menu</a></li>
-            <li><a href="{!! url('/pages') !!}"><i class="fa fa-dashboard"></i> Page</a></li>
+            <li><a href="{{route('shg.products')}}"><i class="fa fa-dashboard"></i> Products</a></li>
+            
         </ul>
     </section>
     <!-- /.sidebar -->

@@ -30,6 +30,7 @@
             </li>
             <li><a href="{!! url('/menus') !!}"><i class="fa fa-dashboard"></i> Menu</a></li>
             <li><a href="{!! url('/pages') !!}"><i class="fa fa-dashboard"></i> Page</a></li>
+            <li><a href="{!! url('admin/category') !!}"><i class="fa fa-dashboard"></i> Category</a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

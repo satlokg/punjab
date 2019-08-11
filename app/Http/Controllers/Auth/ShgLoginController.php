@@ -58,13 +58,13 @@ $value=$request->input('password');
             return back();
         }
     }
-public function userLogout() {
-     $data= auth('district')->logout();
-        return redirect('/user-login');
+public function userLogout() { 
+     $data= auth('shg')->logout();
+        return redirect('/shg/login');
     }
     public function __construct()
     {
-        $this->middleware('guest:shg')->except('logout');
+        $this->middleware('guest:shg')->except('userLogout');
     }
 
 }

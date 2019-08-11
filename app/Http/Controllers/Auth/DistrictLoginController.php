@@ -60,11 +60,11 @@ $value=$request->input('password');
     }
 public function userLogout() {
      $data= auth('district')->logout();
-        return redirect('/user-login');
+        return redirect('/district/login');
     }
     public function __construct()
     {
-        $this->middleware('guest:district')->except('logout');
+        $this->middleware('guest:district')->except('userLogout');
     }
 
 }

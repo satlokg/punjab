@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <script type="text/javascript">
+       var SITE_URL = {!! json_encode(url('/admin')) !!}      
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,14 +29,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
 
-    <link href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <!-- Ionicons -->
-    <link href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/bower_components/Ionicons/css/ionicons.min.css') }}" rel="stylesheet">
     <!-- DataTables -->
     <!-- Theme style -->
-    <link href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <link href="{{ asset('public/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+         <script src="//cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini wysihtml5-supported" style="height: auto; min-height: 100%;">
@@ -58,21 +69,15 @@
 
 
 <!-- Scripts -->
-<script src="{{ asset('public/js/app.js') }}"></script>
-<script src="{{ asset('public/js/dashboard.js') }}"></script>
-<script src="{{ asset('public/js/demo.js') }}"></script>
 <script src="{{ asset('public/js/adminlte.min.js') }}"></script>
 <script src="{{ asset('public/js/bootstrap3-wysihtml5.all.min.js') }}"></script>
 <script src="{{ asset('public/js/jquery-jvectormap-1.2.2.min.js') }}"></script>
 <script src="{{ asset('public/js/jquery-jvectormap-world-mill-en.js') }}"></script>
-<script>
-    $.widget.bridge('uibutton', $.ui.button);
-</script>
-<script src="{{ asset('public/bower_components/jquery/dist/jquery.min.js') }}"></script>
+
+
 <script src="{{ asset('public/bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ asset('public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('public/bower_components/raphael/raphael.min.js') }}"></script>
-<script src="{{ asset('public/bower_components/morris.js/morris.min.js') }}"></script>
 <script src="{{ asset('public/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js') }}"></script>
 <script src="{{ asset('public/bower_components/jquery-knob/dist/jquery.knob.min.js') }}"></script>
 <script src="{{ asset('public/bower_components/moment/min/moment.min.js') }}"></script>
@@ -83,6 +88,27 @@
 
 <script src="{{ asset('public/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('public/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script>
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
 
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
+</script>
 </body>
 </html>

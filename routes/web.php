@@ -67,5 +67,9 @@ Route::prefix('district')->group(function() {
     Route::post('/logout', 'Auth\DistrictLoginController@userLogout')->name('district.logout');
     Route::post('/login', 'Auth\DistrictLoginController@userLogin')->name('district.login.submit');
     Route::get('/dashboard', 'admin\DistrictController@index')->name('district.dashboard');
+
+    Route::get('/shg', 'admin\DistrictController@shg')->name('district.shg');
+    Route::get('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.add');
+    Route::post('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.post');
 });
 

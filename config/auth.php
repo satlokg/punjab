@@ -97,12 +97,12 @@ return [
         ],
         'shgs' => [
             'driver' => 'eloquent',
-            'model' => App\admin\Shg::class,
+            'model' => App\models\Shg::class,
 
         ],
         'districts' => [
             'driver' => 'eloquent',
-            'model' => App\admin\District::class,
+            'model' => App\models\District::class,
 
         ],
 

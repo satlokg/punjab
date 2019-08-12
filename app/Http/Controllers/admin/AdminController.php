@@ -76,7 +76,11 @@ class AdminController extends Controller
 
     public function shg()
     {
-        $shgs=Shg::paginate(10);
+        $shgs=Shg::select('shgs.*','villages.village_name','districts.name as dname','blocks.block_name')
+        ->leftjoin('villages','shgs.village_id','=','villages.id')
+        ->leftjoin('districts','shgs.district_id','=','districts.id')
+        ->leftjoin('blocks','shgs.block_id','=','blocks.id')
+        ->paginate(10); //dd($shgs);
         return view('admin.shg',compact('shgs'));
     }
 

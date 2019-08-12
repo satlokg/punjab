@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.district')
 
 @section('content')
     <div class="col">

@@ -103,6 +103,7 @@ return [
         'districts' => [
             'driver' => 'eloquent',
             'model' => App\models\District::class,
+            
 
         ],
 

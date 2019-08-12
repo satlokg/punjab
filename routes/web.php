@@ -34,6 +34,16 @@ Route::prefix('admin')->group(function() {
     Route::get('/category', 'admin\AdminController@category')->name('admin.category');
     Route::get('/category/add', 'admin\AdminController@categoryAdd')->name('admin.category.add');
     Route::post('/category/add', 'admin\AdminController@categoryAdd')->name('admin.category.post');
+
+    //admin shg
+    Route::get('/shg', 'admin\AdminController@shg')->name('admin.shg');
+    Route::get('/shg/add', 'admin\AdminController@shgAdd')->name('admin.shg.add');
+    Route::post('/shg/add', 'admin\AdminController@shgAdd')->name('admin.shg.post');
+
+    //admin district
+    Route::get('/district', 'admin\AdminController@district')->name('admin.district');
+    Route::get('/district/add', 'admin\AdminController@districtAdd')->name('admin.district.add');
+    Route::post('/district/add', 'admin\AdminController@districtAdd')->name('admin.district.post');
 });
 //User Route
 

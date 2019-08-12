@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\models\Category;
+use App\models\District;
+use App\models\Shg;
 
 class AdminController extends Controller
 {
@@ -29,7 +31,7 @@ class AdminController extends Controller
 
     public function category()
     {
-        $cateories=Category::paginate(1);
+        $cateories=Category::paginate(10);
         return view('admin.category',compact('cateories'));
     }
 
@@ -58,7 +60,7 @@ class AdminController extends Controller
         $category->save();
             if($category){
                    $notification = array(
-                        'message' => 'Category successful Aded', 
+                        'message' => 'Category successfully Aded', 
                         'alert-type' => 'success'
                     );
                 return redirect('admin/category')->with($notification);
@@ -70,5 +72,77 @@ class AdminController extends Controller
          return back()->with($notification);
         }
         return view('admin.categoryForm');
+    }
+
+    public function shg()
+    {
+        $shgs=Shg::paginate(10);
+        return view('admin.shg',compact('shgs'));
+    }
+
+
+    public function shgAdd(Request $r)
+    { 
+        if(!empty($r->post())){
+        $this->validate($r,[
+                'name' => 'required|min:5|max:35',
+            ],[
+                'name.required' => ' The category name field is required.',
+                
+            ]);
+        $category = new Shg();
+        $category->name = $r->name;
+        $category->desc = $r->desc;
+        $category->save();
+            if($category){
+                   $notification = array(
+                        'message' => 'Shg successfully Aded', 
+                        'alert-type' => 'success'
+                    );
+                return redirect('admin/shg')->with($notification);
+            }
+            $notification = array(
+                        'message' => 'Shg not Aded', 
+                        'alert-type' => 'danger'
+                    );
+         return back()->with($notification);
+        }
+        return view('admin.shgForm');
+    }
+
+    public function district()
+    {
+        $districts=District::paginate(10);
+        return view('admin.district',compact('districts'));
+    }
+
+
+    public function districtAdd(Request $r)
+    { 
+        if(!empty($r->post())){
+        $this->validate($r,[
+                'name' => 'required|min:5|max:35',
+            ],[
+                'name.required' => ' The category name field is required.',
+                
+            ]);
+        $category = new Category();
+        $category->name = $r->name;
+        $category->desc = $r->desc;
+        $category->save();
+            if($category){
+                   $notification = array(
+                        'message' => 'Districts successfully Aded', 
+                        'alert-type' => 'success'
+                    );
+                return redirect('admin/district')->with($notification);
+            }
+            $notification = array(
+                        'message' => 'Districts not Aded', 
+                        'alert-type' => 'danger'
+                    );
+         return back()->with($notification);
+        }
+        return view('admin.districtForm');
     }
 }

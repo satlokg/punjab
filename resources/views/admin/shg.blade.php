@@ -32,10 +32,10 @@
               <th>Name</th>
               <th>Action</th>
             </tr>
-            @foreach($cateories as $key=>$category)
+            @foreach($shgs as $key=>$shg)
             <tr>
                 <td>{{$key+1}}</td>
-              <td>{{$category->name}}</td>
+              <td>{{$shg->name}}</td>
               <td>
                   <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
                       <span class="fa fa-pencil"></span>
@@ -43,12 +43,15 @@
                   <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
                       <span class="fa fa-trash"></span>
                   </a>
+                  <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
+                      Reports
+                  </a>
               </td>
             </tr>
            @endforeach
           </table>
     </div>
-    {!!$cateories->render()!!}
+    {!!$shgs->render()!!}
     </div>
 </div>
 </section>

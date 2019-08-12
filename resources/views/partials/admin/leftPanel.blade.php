@@ -28,9 +28,9 @@
                     <li><a href="{!! url('/dashboard') !!}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
                 </ul>
             </li>
-            <li><a href="{!! url('/menus') !!}"><i class="fa fa-dashboard"></i> Menu</a></li>
-            <li><a href="{!! url('/pages') !!}"><i class="fa fa-dashboard"></i> Page</a></li>
             <li><a href="{!! url('admin/category') !!}"><i class="fa fa-dashboard"></i> Category</a></li>
+            <li><a href="{!! url('admin/district') !!}"><i class="fa fa-dashboard"></i> District</a></li>
+            <li><a href="{!! url('admin/shg') !!}"><i class="fa fa-dashboard"></i> Shg</a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

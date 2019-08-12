@@ -29,12 +29,18 @@
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
             @foreach($products as $key=>$product)
             <tr>
                 <td>{{$key+1}}</td>
               <td>{{$product->pname}}</td>
+              <td>{{$product->pdesc}}</td>
+              <td>{{$product->price}} / {{$product->unit}}</td>
+              <td>{{$product->status}}</td>
               <td>
                   <a href="route('admin.product.add')" class="btn btn-success" title="Add Product">
                       <span class="fa fa-pencil"></span>

@@ -38,37 +38,62 @@
 
       <div class="form-group">
         <label>Category</label>
-        <select class="form-control" id="e2" name="dt['general_detail']['category_id']">
-          <option>Select Category</option>
+        <select class="form-control" id="e2" name="category_id">
+          <option value="">Select Category</option>
           @foreach($categories as $cat)
-          <option value="{{$cat->id}}">{{$cat->name}}</option>
+          <option value="{{$cat->id}}" {{ old("category_id")== $cat->id?'selected':''}}>{{$cat->name}}</option>
           @endforeach
         </select>
+        @if ($errors->has("category_id"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("category_id") }}</strong>
+                                </span>
+                            @endif
       </div>
 
       <div class="form-group">
         <label>Product Name</label>
-        <input type="text" class="form-control" placeholder="Enter Product name" name="dt['general_detail']['pname']">
+        <input type="text" class="form-control" placeholder="Enter Product name" value="{{old('pname')}}" name="pname">
+        @if ($errors->has("pname"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("pname") }}</strong>
+                                </span>
+                            @endif
       </div>
 
       <div class="form-group">
         <label>Description</label>
-       <textarea class="form-control" name="dt['general_detail']['pdesc']" rows="4"></textarea>
+       <textarea class="form-control" name="pdesc" rows="4"> {{old('pdesc')}}</textarea>
+       @if ($errors->has("pdesc"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("pdesc") }}</strong>
+                                </span>
+                            @endif
       </div>
 
       <div class="form-group">
         <label>Material/Ingredient Used</label>
-       <textarea class="form-control" name="dt['general_detail']['pmaterial']" rows="4"></textarea>
+       <textarea class="form-control" name="pmaterial" rows="4">{{old('pmaterial')}}</textarea>
+       @if ($errors->has("pmaterial"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("pmaterial") }}</strong>
+                                </span>
+                            @endif
       </div>
 
       <div class="form-group">
         <div class="col-md-9">
         <label>Price / unit</label>
-        <input type="text" class="form-control" placeholder="Price per unit" name="dt['general_detail']['price']">
+        <input type="text" class="form-control" placeholder="Price per unit" value="{{old('price')}}" name="price">
+        @if ($errors->has("price"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("price") }}</strong>
+                                </span>
+                            @endif
         </div>
         <div class="col-md-3">
           <label>unit</label>
-          <select class="form-control" name="dt['general_detail']['unit']">
+          <select class="form-control" name="unit">
             <option>Kg</option>
             <option>Ltr</option>
             <option>piece</option>
@@ -78,15 +103,21 @@
 
       <div class="form-group">
         <label>Owner Name</label>
-        <input type="text" class="form-control" placeholder="Enter Product name" name="dt['general_detail']['oname']">
+        <input type="text" class="form-control" placeholder="Enter Product name" value="{{old('oname')}}" name="oname">
+        @if ($errors->has("oname"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("oname") }}</strong>
+                                </span>
+                            @endif
       </div>
 
       <div class="form-group">
         <label>Status</label>
-          <select class="form-control" name="dt['general_detail']['status']">
+          <select class="form-control" name="status">
             <option>Available</option>
             <option>Not Available</option>
           </select>
+
       </div>
 
 
@@ -103,22 +134,22 @@
       <div class="after-add-more">
           <div class="form-group">
             <label>Column Name</label>
-              <input class="form-control" type="text" name="dt['other_detail']['column_name'][]">
+              <input class="form-control" type="text" name="dt['column_name'][]">
           </div>
           <div class="form-group">
             <label>Description</label>
-              <textarea class="form-control" name="dt['other_detail']['col_desc'][]"></textarea>
+              <textarea class="form-control" name="dt['col_desc'][]"></textarea>
           </div>
         </div>
         <div class="copy hide">
           <div class="control-group" style="margin-top:10px">
             <div class="form-group">
             <label>Column Name</label>
-              <input class="form-control" type="text" name="dt['other_detail']['column_name'][]">
+              <input class="form-control" type="text" name="dt['column_name'][]">
           </div>
           <div class="form-group">
             <label>Description</label>
-              <textarea class="form-control" name="dt['other_detail']['col_desc'][]"></textarea>
+              <textarea class="form-control" name="dt['col_desc'][]"></textarea>
           </div>
             <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
           </div>
@@ -130,6 +161,37 @@
 
     <div class="col-sm-12">
       <h3>Product Pic</h3>
+      <div class="input-group hdtuto control-group lst increment" >
+
+      <input type="file" name="filenames[]" class="myfrm form-control">
+
+      <div class="input-group-btn"> 
+
+        <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+
+      </div>
+
+    </div>
+@if ($errors->has("filenames"))
+                                <span class="invalid-feedback text-danger" role="alert">
+                                    <strong>{{ $errors->first("filenames") }}</strong>
+                                </span>
+                            @endif
+    <div class="clone hide">
+
+      <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+
+        <input type="file" name="filenames[]" class="myfrm form-control">
+
+        <div class="input-group-btn"> 
+
+          <button class="btn btn-danger remove" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+
+        </div>
+
+      </div>
+
+    </div>
     </div>
 
     </div>   
@@ -161,6 +223,27 @@
 
     });
 
+
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $(".btn-success").click(function(){ 
+
+          var lsthmtl = $(".clone").html();
+
+          $(".increment").after(lsthmtl);
+
+      });
+
+      $("body").on("click",".btn-danger",function(){ 
+
+          $(this).parents(".hdtuto control-group lst").remove();
+
+      });
+
+    });
 
 </script>
 @endsection

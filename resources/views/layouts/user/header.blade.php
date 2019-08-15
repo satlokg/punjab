@@ -30,13 +30,13 @@
             </div>
         </div>
     </div>
-    <div class="header-bottom sticky-bar header-res-padding">
+    <div class="header-bottom sticky-bar res-padding">
         <div class="container">
             <div class="row">
                 <div class="col-xl-2 col-lg-2 col-md-6 col-4">
                     <div class="logo">
                         <a href="index.html">
-                            <img alt="" src="assets/img/logo/logo.png">
+                            <img alt="" src="{{url('public/assets/img/logo/logo.png')}}" class="img-thumbnail" width="150">
                         </a>
                     </div>
                 </div>

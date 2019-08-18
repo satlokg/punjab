@@ -66,7 +66,7 @@
                                              @if($k<=$dist->count()/2)
                                             @continue
                                             @endif
-                                            <li class="mega-menu-title"><a href="{{route('districts',['d'=>$v->name])}}">{{$d->name}}</a></li>
+                                            <li class="mega-menu-title"><a href="{{route('districts',['d'=>$d->name])}}">{{$d->name}}</a></li>
                                             @endforeach
                                        
                                         </ul>

@@ -46,7 +46,38 @@
                             <ul>
                                 <li><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
                                 </li>
-                                <li><a href="shop.html"> Shop <i class="fa fa-angle-down"></i> </a>
+                                <li><a href="shop.html"> District Shop <i class="fa fa-angle-down"></i> </a>
+                                    <ul class="mega-menu">
+                                    <li>
+                                        <ul>
+                                            @foreach($dist as $k=>$v)
+                                            <li class="mega-menu-title"><a href="{{route('districts',['d'=>$v->name])}}">{{$v->name}}</a></li>
+                                            @if($k>=$dist->count()/2)
+                                            @break
+                                            @endif
+                                            @endforeach
+                                       
+                                        </ul>
+                                        
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            @foreach($dist as $k=>$d)
+                                             @if($k<=$dist->count()/2)
+                                            @continue
+                                            @endif
+                                            <li class="mega-menu-title"><a href="{{route('districts',['d'=>$v->name])}}">{{$d->name}}</a></li>
+                                            @endforeach
+                                       
+                                        </ul>
+                                        
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li class="mega-menu-img"><a href="shop.html"><img src="{{url('public/assets/img/banner/banner-12.png')}}" alt=""></a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
                                 </li>
                                 <li><a href="shop.html">Collection</a></li>
                                 <li><a href="about.html"> About </a></li>

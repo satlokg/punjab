@@ -14,4 +14,9 @@ class District extends Authenticatable
         'name','password',
 
     ];
+
+     public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

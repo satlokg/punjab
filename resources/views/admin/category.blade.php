@@ -38,10 +38,13 @@
               <td>{{$category->name}}</td>
               <td>
                   <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
-                      <span class="fa fa-pencil"></span>
+                      <span class="fa fa-pencil"></span> Edit
                   </a>
                   <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
-                      <span class="fa fa-trash"></span>
+                      <span class="fa fa-trash"></span> Delete
+                  </a>
+                  <a href="{{route('admin.subcategory',['cat'=>$category->id])}}" class="btn btn-info" title="Add Category">
+                      <span class="fa fa-plus"></span> Sub Category
                   </a>
               </td>
             </tr>

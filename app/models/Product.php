@@ -23,4 +23,17 @@ class Product extends Model
 'sub_category',
 'shg_id'
    ];
+
+   public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    public function files()
+    {
+        return $this->hasMany(File::class);
+    }
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
 }

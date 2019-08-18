@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
@@ -42,8 +40,17 @@ Route::prefix('admin')->group(function() {
 
     //admin district
     Route::get('/district', 'admin\AdminController@district')->name('admin.district');
-    Route::get('/district/add', 'admin\AdminController@districtAdd')->name('admin.district.add');
-    Route::post('/district/add', 'admin\AdminController@districtAdd')->name('admin.district.post');
+    Route::get('/add/district', 'admin\AdminController@districtAdd')->name('admin.district.add');
+    Route::post('/add/district', 'admin\AdminController@districtAdd')->name('admin.district.post');
+
+    //admin sub category
+    Route::get('/subcategory/{cat}', 'admin\AdminController@subcategory')->name('admin.subcategory');
+    Route::get('/add/subcategory/{cat}', 'admin\AdminController@subcategoryAdd')->name('admin.subcategory.add');
+    Route::post('/add/subcategory', 'admin\AdminController@subcategoryAdd')->name('admin.subcategory.post');
+
+
+
+    Route::get('/ajax/{action}/{stat}', 'admin\AdminController@ajax');
 });
 //User Route
 
@@ -73,3 +80,10 @@ Route::prefix('district')->group(function() {
     Route::post('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.post');
 });
 
+
+
+//user
+
+Route::get('/', 'User\WelcomeController@index')->name('welcome');
+Route::get('/districts/{d}', 'User\WelcomeController@districts')->name('districts');
+Route::get('/category/{c}', 'User\WelcomeController@category')->name('category');

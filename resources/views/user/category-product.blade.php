@@ -45,7 +45,7 @@
                                     <div class="product-wrap mb-25 scroll-zoom">
                                         <div class="product-img">
 
-                                            <a href="#">
+                                            <a href="{{route('product.detail',['id'=>$product->id])}}">
                                                 @foreach($product->files as $file)
                                                 <img class="default-img" src="{{url('public/files/').'/'.$file->filename}}" height="400" alt="">
                                                 

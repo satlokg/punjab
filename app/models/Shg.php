@@ -11,7 +11,12 @@ class Shg extends Authenticatable
 {
        protected $fillable = [
 
-        'name', 'email', 'password',
+        'name', 'contact', 'password',
 
     ];
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

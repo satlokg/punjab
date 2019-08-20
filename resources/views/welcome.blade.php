@@ -130,7 +130,7 @@
                                     <div class="product-wrap mb-25 scroll-zoom">
                                         <div class="product-img">
 
-                                            <a href="#">
+                                            <a href="{{route('product.detail',['id'=>$product->id])}}">
                                                 @foreach($product->files as $file)
                                                 <img class="default-img" src="{{url('public/files/').'/'.$file->filename}}" height="400" alt="">
                                                 
@@ -149,8 +149,8 @@
                                             </div>
                                         </div>
                                         <div class="product-content text-center">
-                                            <h3><a href="product-details.html">{{$product->pname}}</a></h3>
-                                            <h5><a href="product-details.html">{{$product->category->name}}</a></h5>
+                                            <h3><a href="{{route('product.detail',['id'=>$product->id])}}">{{$product->pname}}</a></h3>
+                                            <h5><a href="{{route('category',['c'=>$product->category->name])}}">{{$product->category->name}}</a></h5>
                                             <div class="product-rating">
                                                 <i class="fa fa-star-o yellow"></i>
                                                 <i class="fa fa-star-o yellow"></i>

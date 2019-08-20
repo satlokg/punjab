@@ -36,4 +36,8 @@ class Product extends Model
     {
         return $this->belongsTo(District::class);
     }
+    public function shg()
+    {
+        return $this->belongsTo(Shg::class);
+    }
 }

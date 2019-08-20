@@ -87,3 +87,4 @@ Route::prefix('district')->group(function() {
 Route::get('/', 'User\WelcomeController@index')->name('welcome');
 Route::get('/districts/{d}', 'User\WelcomeController@districts')->name('districts');
 Route::get('/category/{c}', 'User\WelcomeController@category')->name('category');
+Route::get('/product_detail/{id}', 'User\ProductController@productDetail')->name('product.detail');

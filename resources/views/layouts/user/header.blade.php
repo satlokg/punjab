@@ -44,7 +44,7 @@
                     <div class="main-menu">
                         <nav>
                             <ul>
-                                <li><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
+                                <li><a href="/punjab">Home <i class="fa fa-angle-down"></i></a>
                                 </li>
                                 <li><a href="shop.html"> District Shop <i class="fa fa-angle-down"></i> </a>
                                     <ul class="mega-menu">

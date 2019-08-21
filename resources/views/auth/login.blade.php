@@ -1,74 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <title>Login</title>
-</head>
-<body>
-<div class="container" style="padding-top: 50px;">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+@extends('layouts.user')
+@section('banner')
+<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <ul>
+                <li>
+                    <a href="#">login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@endsection
+@section('content')
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+<div class="col">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 ml-auto mr-auto">
+                <div class="login-register-wrapper">
+                    <div class="login-register-tab-list nav">
+                        <a class="active" data-toggle="tab" href="#lg1">
+                            <h4> login </h4>
+                        </a>
+                      
+                    </div>
+                    <div class="tab-content">
+                        <div id="lg1" class="tab-pane active">
+                            <div class="login-form-container">
+                                <div class="login-register-form">
+                                    <form method="POST" action="{{ route('login') }}">
+                                      {{ csrf_field() }}
+                                        <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
+                                        <input id="password" type="password" name="password" required>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
+                                        <div class="button-box">
+                                            <div class="login-toggle-btn">
+                                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                <label>Remember me</label>
+                                                <a href="{{ route('password.request') }}">Forgot Password?</a>
+                                            </div>
+                                            <button type="submit"><span>Login</span></button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
+                       
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</body>
-</html>
+
+       
+@endsection

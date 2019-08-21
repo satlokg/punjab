@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Notifications\MailNotification;
+use App\models\Category;
+use App\models\District;
 
 class RegisterController extends Controller
 {
@@ -29,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/account';
 
     /**
      * Create a new controller instance.
@@ -73,5 +75,12 @@ class RegisterController extends Controller
         ]);
         $user->notify(new MailNotification);
         return $user;
+    }
+
+     public function showRegistrationForm()
+    {
+        $cat=Category::all();
+        $dist=District::all();
+        return view('auth.register',compact('cat','dist'));
     }
 }

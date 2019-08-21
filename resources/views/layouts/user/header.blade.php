@@ -25,7 +25,20 @@
                     </div>
                 </div>
                 <div class="header-offer">
-                    <p>Free delivery on order over <span>$200</span></p>
+                   <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" role="button" aria-expanded="false">
+                                   Hello {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                
+                            </li>
+                        @endif
+                    </ul>
                 </div>
             </div>
         </div>
@@ -44,7 +57,7 @@
                     <div class="main-menu">
                         <nav>
                             <ul>
-                                <li><a href="/punjab">Home <i class="fa fa-angle-down"></i></a>
+                                <li><a href="/punjab">Home </a>
                                 </li>
                                 <li><a href="shop.html"> District Shop <i class="fa fa-angle-down"></i> </a>
                                     <ul class="mega-menu">
@@ -101,10 +114,22 @@
                             <a class="account-satting-active" href="#"><i class="pe-7s-user-female"></i></a>
                             <div class="account-dropdown">
                                 <ul>
-                                    <li><a href="login-register.html">Login</a></li>
-                                    <li><a href="login-register.html">Register</a></li>
-                                    <li><a href="wishlist.html">Wishlist  </a></li>
-                                    <li><a href="my-account.html">my account</a></li>
+                                    @if (Auth::guest())
+                                        <li><a href="{{ route('login') }}">Login</a></li>
+                                        <li><a href="{{ route('register') }}">Register</a></li>
+                                    @else
+                                    <li><a href="#">Wishlist  </a></li>
+                                    <li><a href="{{ route('account') }}">my account</a></li>
+                                    <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -114,44 +139,38 @@
                         <div class="same-style cart-wrap">
                             <button class="icon-cart">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="count-style">02</span>
+                                <span class="count-style">
+                                    {{Cart::getContent()->count()}}
+                                </span>
                             </button>
                             <div class="shopping-cart-content">
                                 <ul>
+                                    @if(Cart::getContent())
+                                    @foreach(Cart::getContent() as $item)
                                     <li class="single-shopping-cart">
                                         <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-1.png"></a>
+                                            <a href="#"><img alt="" class="img img-thumbnail" src="{{url('public/files')}}/{{$item->attributes[0]}}"></a>
                                         </div>
                                         <div class="shopping-cart-title">
-                                            <h4><a href="#">T- Shart & Jeans </a></h4>
-                                            <h6>Qty: 02</h6>
-                                            <span>$260.00</span>
+                                            <h4><a href="#">{{$item->name}}</a></h4>
+                                            <h6>Qty: {{$item->quantity}}</h6>
+                                            <span>Rs {{$item->price}}</span>
                                         </div>
                                         <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fa fa-times-circle"></i></a>
+                                            <a href="{{route('cart.remove',['id'=>$item->id])}}"><i class="fa fa-times-circle"></i></a>
                                         </div>
                                     </li>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-2.png"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h4><a href="#">T- Shart & Jeans </a></h4>
-                                            <h6>Qty: 02</h6>
-                                            <span>$260.00</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="fa fa-times-circle"></i></a>
-                                        </div>
-                                    </li>
+                                    @endforeach
+                                    @endif
+                                    
                                 </ul>
                                 <div class="shopping-cart-total">
-                                    <h4>Shipping : <span>$20.00</span></h4>
-                                    <h4>Total : <span class="shop-total">$260.00</span></h4>
+                                    <!-- <h4>Shipping : <span>$20.00</span></h4> -->
+                                    <h4>Total : <span class="shop-total">Rs {{Cart::getSubTotal()}}</span></h4>
                                 </div>
                                 <div class="shopping-cart-btn btn-hover text-center">
-                                    <a class="default-btn" href="cart-page.html">view cart</a>
-                                    <a class="default-btn" href="checkout.html">checkout</a>
+                                    <a href="{{route('viewcart')}}" class="default-btn" >view cart</a>
+                                    <a href="{{route('checkout')}}" class="default-btn" >checkout</a>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@
         <div class="breadcrumb-content text-center">
             <ul>
                 <li>
-                    <a href="index.html">District</a>
+                    <a href="index.html">Shg Name</a>
                 </li>
                 <li class="active">{{$products->name}} </li>
             </ul>

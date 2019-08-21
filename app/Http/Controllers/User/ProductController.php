@@ -4,9 +4,13 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
+use Cart;
 use App\models\Category;
 use App\models\Product;
 use App\models\District;
+use App\models\Address;
+use App\models\Order;
 
 class ProductController extends Controller
 {
@@ -30,5 +34,47 @@ class ProductController extends Controller
     	$products=Product::with('category','files')->orderBy('id','desc')->take(10)->get();  
     	//dd($products);
     	 return view('user.product',compact('cat','products','dist','product'));
+    }
+
+    public function checkout(Request $r){
+        if($r->post()){
+            $addr=$r->all();
+            $address=$addr['billing'];
+            $address['type']="billing";
+            Address::create($address);
+            if(isset($addr['shipping']['ship'])){
+                $address['type']="shipping";
+                $a=Address::create($address);
+            }else{
+                $address['type']="shipping";
+                $a=Address::create($address);
+            }
+            $order=Order::create([
+                'user_id'=>Auth::user()->id,
+                'address_id'=>$a->id,
+                'total'=>Cart::getTotal(),
+            ]);
+            foreach (Cart::getContent() as $item) {
+                $order->products()->attach($order->id, ['quantity' => $item->quantity,'product_id'=>$item->id]);
+            }
+            Cart::clear();
+            return redirect()->route('account');
+            
+        }
+        $cat=$this->cat;
+        $dist=$this->dist;
+         return view('user.checkout',compact('cat','dist'));
+    }
+
+    public function viewcart(){
+       // dd(Cart::getContent());
+        $cat=$this->cat;
+        $dist=$this->dist;
+         return view('user.viewcart',compact('cat','dist'));
+    }
+
+    public function order(){
+       $ord = Order::with('products.shg','products.files')->get();
+       dd($ord);
     }
 }

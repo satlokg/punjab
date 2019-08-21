@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\models\Category;
 use App\models\Product;
 use App\models\District;
+use App\models\Shg;
 
 class WelcomeController extends Controller
 {
@@ -42,4 +43,13 @@ class WelcomeController extends Controller
     	->orderBy('id','desc')->first();
     	 return view('user.category-product',compact('cat','products','dist'));
     }
+    public function shgstore($c){
+        $cat=$this->cat;
+        $dist=$this->dist;
+        $products=Shg::with('products.files')
+        ->where('name',$c)
+        ->orderBy('id','desc')->first(); //dd($products);
+         return view('user.shg-product',compact('cat','products','dist'));
+    }
+
 }

@@ -4,23 +4,11 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//
+use App\models\Category;
+use App\models\Product;
+use App\models\District;
 use Auth;
-//
-
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Session;
-use DateTime;
-use links;
-use Toast;
-use App\Role;
-use Mail;
-use PDF;
-use Response;
-use App\PasswordReset;
+use App\models\Order;
 
 //
 class UserController extends Controller
@@ -28,40 +16,15 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->cat=Category::all();
+        $this->dist=District::all();
     }
-
-    public function register(){
-                 dd("heeee"); die();
-  }
-    public function index(){
-    	//dd("xxxx");
-        return view('templates.menus');
+    public function index()
+    {
+       $cat=$this->cat;
+       $dist=$this->dist;
+       $orders = Order::where('user_id',Auth::user()->id)->with('products.shg','products.files')->paginate(10);
+       return view('user.account',compact('cat','dist','orders'));
     }
-    public  function contact(){
-    	//dd("hello");
-    	return  view('user.contact');
-    }
-
-     public  function about(){
-        //dd("hello");
-        return  view('user.about');
-    }
-
-    public  function collection(){
-        //dd("hello");
-        return  view('user.shop');
-    }
-
-    public function logout() {
-        //logout user
-
-    $ab = \Auth::logout();
-        // redirect to homepage
-    return redirect('/');
-}
-  public  function myaccount(){
-    return view('user.myaccount');
-  }
-
   
 }

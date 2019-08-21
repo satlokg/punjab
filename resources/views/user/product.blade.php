@@ -98,7 +98,7 @@
                             <input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
                         </div>
                         <div class="pro-details-cart btn-hover">
-                            <a href="#">Add To Cart</a>
+                            <a href="{{route('cart.add',['id'=>$product->id])}}">Add To Cart</a>
                         </div>
                         <div class="pro-details-wishlist">
                             <a href="#"><i class="fa fa-heart-o"></i></a>
@@ -125,7 +125,7 @@
                     <div class="pro-details-meta">
                         <span>Owner Name :</span>
                         <ul>
-                            <li><a href="#">{{$product->shg->name}} +91-{{$product->shg->contact}}</a></li>
+                            <li><a href="{{route('shg.store',['s'=>$product->shg->name])}}">{{$product->shg->name}} +91-{{$product->shg->contact}}</a></li>
                             
                         </ul>
                     </div>
@@ -166,10 +166,10 @@
                             <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
                         </div>
                         <div class="pro-same-action pro-cart">
-                            <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                            <a title="Add To Cart" href="{{route('cart.add',['id'=>$product->id])}}"><i class="pe-7s-cart"></i> Add to cart</a>
                         </div>
                         <div class="pro-same-action pro-quickview">
-                            <a title="Quick View" href="{{route('product.detail',['id'=>$prd->id])}}" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                            <a title="Quick View" href="{{route('product.detail',['id'=>$prd->id])}}"><i class="pe-7s-look"></i></a>
                         </div>
                     </div>
                 </div>

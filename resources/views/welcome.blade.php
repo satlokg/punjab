@@ -141,7 +141,7 @@
                                                     <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
                                                 </div>
                                                 <div class="pro-same-action pro-cart">
-                                                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
+                                                    <a title="Add To Cart" href="{{route('cart.add',['id'=>$product->id])}}"><i class="pe-7s-cart"></i> Add to cart</a>
                                                 </div>
                                                 <div class="pro-same-action pro-quickview">
                                                     <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i class="pe-7s-look"></i></a>

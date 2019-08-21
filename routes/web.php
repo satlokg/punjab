@@ -87,4 +87,21 @@ Route::prefix('district')->group(function() {
 Route::get('/', 'User\WelcomeController@index')->name('welcome');
 Route::get('/districts/{d}', 'User\WelcomeController@districts')->name('districts');
 Route::get('/category/{c}', 'User\WelcomeController@category')->name('category');
+Route::get('/shg-store/{c}', 'User\WelcomeController@shgstore')->name('shg.store');
 Route::get('/product_detail/{id}', 'User\ProductController@productDetail')->name('product.detail');
+Route::get('/checkout', 'User\ProductController@checkout')->name('checkout')->middleware('auth');
+Route::post('/final-checkout', 'User\ProductController@checkout')->name('final.checkout')->middleware('auth');
+Route::get('/viewcart', 'User\ProductController@viewcart')->name('viewcart');
+Route::get('/order', 'User\ProductController@order')->name('order');
+
+Route::get('/account', 'User\UserController@index')->name('account');
+
+
+//cart
+Route::prefix('cart')->group(function() {
+    Route::get('/index', 'cart\CartController@index')->name('cart.index');
+    Route::get('/add/{id}', 'cart\CartController@add')->name('cart.add');
+    Route::get('/remove/{id}', 'cart\CartController@remove')->name('cart.remove');
+    Route::get('/clear', 'cart\CartController@clear')->name('cart.clear');
+    Route::post('/updateCart', 'cart\CartController@updateCart')->name('cart.update');
+});

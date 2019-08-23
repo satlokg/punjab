@@ -36,6 +36,14 @@ class Product extends Model
     {
         return $this->belongsTo(District::class);
     }
+    public function block()
+    {
+        return $this->belongsTo(Block::class);
+    }
+    public function village()
+    {
+        return $this->belongsTo(Village::class);
+    }
     public function shg()
     {
         return $this->belongsTo(Shg::class);

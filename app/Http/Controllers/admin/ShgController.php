@@ -39,7 +39,7 @@ class ShgController extends Controller
     public function productsAdd(Request $r)
     {
         if(!empty($r->post())){
-            //dd($r->all());
+            //dd($r->dt);
              $this->validate($r, [
                 'pname' => 'required',
                 'oname' => 'required',
@@ -74,6 +74,7 @@ class ShgController extends Controller
              $product->district_id =Auth::guard('shg')->user()->district_id;
              $product->save();
         $files=new File;
+
         if($r->hasfile('filenames'))
          {
             foreach($r->file('filenames') as $k=>$file)

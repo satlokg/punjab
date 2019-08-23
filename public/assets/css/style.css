@@ -4366,10 +4366,10 @@ a.default-btn {
       color: #fff;
       font-weight: bold;
       text-transform: uppercase;
-      background-color: #343538;
+      background-color: #dc3545;
       display: inline-block;
       line-height: 1;
-      padding: 23px 38px 23px;
+      padding: 11px 15px 11px;
       z-index: 99; }
       @media only screen and (max-width: 767px) {
         .product-details-content .pro-details-quality .pro-details-cart a {

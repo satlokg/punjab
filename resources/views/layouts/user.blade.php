@@ -94,23 +94,23 @@
     <div class="container">
         <div class="row flex-row">
             <div class="col-sm-4 col-md-3 sidebar">
-        <div class="mini-submenu">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </div>
-        <div class="list-group">
-            <span href="#" class="list-group-item bg-orange text-white">
-                <b>ALL CATEGORIES</b>
-            </span>
-            @foreach($cat as $c)
-            <a href="{{route('category',['c'=>$c->name])}}" class="list-group-item">
-                <i class="fa fa-bar-chart-o"></i> {{$c->name}}
-            </a>
-           @endforeach
+                <div class="mini-submenu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <div class="list-group">
+                    <span href="#" class="list-group-item bg-orange text-white">
+                        <b>ALL DISTRICT</b>
+                    </span>
+                    @foreach($dist as $k=>$v)
+                    <a href="{{route('districts',['d'=>$v->name])}}" class="list-group-item">
+                        <i class="fa fa-shopping-bag text-success" aria-hidden="true"></i>  {{$v->name}}
+                    </a>
+                   @endforeach
 
-        </div>        
-    </div>
+                </div>        
+            </div>
 
             @yield('content')
             

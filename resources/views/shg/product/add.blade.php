@@ -124,7 +124,7 @@
     </div>
 
    <div class="col-sm-1"></div>
-    <div class="col-sm-6">
+   <!--  <div class="col-sm-6">
       <div class="row">
       <h3 class="box-title">Add Other Details</h3>
       <div class="pull-right">
@@ -154,7 +154,7 @@
             <button class="btn btn-danger remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
           </div>
         </div>
-    </div>
+    </div> -->
 
   </div>
    <div class="box-body with-border">

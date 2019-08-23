@@ -59,7 +59,7 @@
                             <ul>
                                 <li><a href="/punjab">Home </a>
                                 </li>
-                                <li><a href="shop.html"> District Shop <i class="fa fa-angle-down"></i> </a>
+                                <li><a href="#"> District Shop <i class="fa fa-angle-down"></i> </a>
                                     <ul class="mega-menu">
                                     <li>
                                         <ul>
@@ -92,7 +92,13 @@
                                     </li>
                                 </ul>
                                 </li>
-                                <li><a href="shop.html">Collection</a></li>
+                                <li><a href="#">Category <i class="fa fa-angle-down"></i></a>
+                                    <ul class="submenu">
+                                        @foreach($cat as $c)
+                                        <li><a href="{{route('category',['c'=>$c->name])}}">{{$c->name}}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 <li><a href="about.html"> About </a></li>
                                 <li><a href="contact.html"> Contact</a></li>
                             </ul>

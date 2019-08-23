@@ -15,7 +15,7 @@
 @endsection
 @section('content')
 <div class="col-lg-9">
-        <div class="shop-area pt-100 pb-100">
+        <div class="shop-area pt-10 pb-10">
     <div class="container">
         <div class="row">
             <div class="col-xl-7 col-lg-7 col-md-12">

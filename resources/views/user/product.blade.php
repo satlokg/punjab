@@ -102,7 +102,7 @@
                     <div class="pro-details-meta">
                         <span><b>Owner Name :</b></span>
                         <ul>
-                            <li><a href="{{route('shg.store',['s'=>$product->shg->name])}}">{{$product->shg->name}} </a></li>
+                            <li><a href="{{route('shg.store',['s'=>$product->shg->name])}}">{{$product->oname}} </a></li>
                             
                         </ul>
                     </div>
@@ -110,7 +110,7 @@
                     <div class="pro-details-meta">
                         <span><b>Owner Name :</b></span>
                         <ul>
-                            <li><a href="{{route('shg.store',['s'=>$product->shg->name])}}"> +91-{{$product->oname}}</a></li>
+                            <li><a href="{{route('shg.store',['s'=>$product->shg->name])}}"> +91-{{$product->shg->contact}}</a></li>
                             
                         </ul>
                     </div>

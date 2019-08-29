@@ -89,12 +89,21 @@ Route::get('/districts/{d}', 'User\WelcomeController@districts')->name('district
 Route::get('/category/{c}', 'User\WelcomeController@category')->name('category');
 Route::get('/shg-store/{c}', 'User\WelcomeController@shgstore')->name('shg.store');
 Route::get('/product_detail/{id}', 'User\ProductController@productDetail')->name('product.detail');
+Route::get('/product/status/{id}/{status}', 'User\ProductController@productStatus')->name('product.status');
 Route::get('/checkout', 'User\ProductController@checkout')->name('checkout')->middleware('auth');
 Route::post('/final-checkout', 'User\ProductController@checkout')->name('final.checkout')->middleware('auth');
 Route::get('/viewcart', 'User\ProductController@viewcart')->name('viewcart');
 Route::get('/order', 'User\ProductController@order')->name('order');
 
 Route::get('/account', 'User\UserController@index')->name('account');
+//orders
+Route::get('/order/today', 'User\OrderController@today')->name('shg.today.order');
+Route::get('/order/month', 'User\OrderController@month')->name('shg.month.order');
+Route::get('/order/all', 'User\OrderController@order')->name('shg.order');
+Route::get('/order/delivered', 'User\OrderController@delivered')->name('shg.delivered.order');
+Route::get('/order/pending', 'User\OrderController@pending')->name('shg.pending.order');
+Route::get('/order/cancel', 'User\OrderController@cancel')->name('shg.cancel.oreder');
+
 
 
 //cart

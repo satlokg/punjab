@@ -131,10 +131,8 @@
                                         <div class="product-img">
 
                                             <a href="{{route('product.detail',['id'=>$product->id])}}">
-                                                @foreach($product->files as $file)
-                                                <img class="default-img" src="{{url('public/files/').'/'.$file->filename}}" height="400" alt="">
+                                                <img class="default-img" src="{{url('public/files/').'/'.$product->files['0']->filename}}" height="400" alt="">
                                                 
-                                                @endforeach
                                             </a>
                                             <div class="product-action">
                                                 <div class="pro-same-action pro-wishlist">

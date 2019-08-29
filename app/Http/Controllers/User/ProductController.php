@@ -11,6 +11,7 @@ use App\models\Product;
 use App\models\District;
 use App\models\Address;
 use App\models\Order;
+use DB;
 
 class ProductController extends Controller
 {
@@ -55,7 +56,7 @@ class ProductController extends Controller
                 'total'=>Cart::getTotal(),
             ]);
             foreach (Cart::getContent() as $item) {
-                $order->products()->attach($order->id, ['quantity' => $item->quantity,'product_id'=>$item->id]);
+                $order->products()->attach($order->id, ['quantity' => $item->quantity,'product_id'=>$item->id,'shg_id'=>$item->conditions]);
             }
             Cart::clear();
             return redirect()->route('account');
@@ -76,5 +77,20 @@ class ProductController extends Controller
     public function order(){
        $ord = Order::with('products.shg','products.files')->get();
        dd($ord);
+    }
+    public function productStatus($id,$status){
+       $res=DB::table('order_product')->where('id',$id)->update(['status'=>$status]);
+        if($res){
+                   $notification = array(
+                        'message' => 'Status updated', 
+                        'alert-type' => 'success'
+                    );
+                return back()->with($notification);
+            }
+            $notification = array(
+                        'message' => 'Sorry Status Not updated', 
+                        'alert-type' => 'danger'
+                    );
+         return back()->with($notification);
     }
 }

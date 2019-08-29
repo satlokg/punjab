@@ -52,4 +52,11 @@ class User extends Authenticatable
         $this->first_name = $first_name;
         $this->last_name = $last_name;
     }
+
+    public function order()
+    {
+        return $this->hasMany('App\models\Order');
+    }
+
+    
 }

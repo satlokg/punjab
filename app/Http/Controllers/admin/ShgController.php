@@ -8,7 +8,7 @@ use App\models\Product;
 use App\models\File;
 use Auth;
 use App\models\Category;
-
+use App\models\Order;
 class ShgController extends Controller
 {
     /**
@@ -27,7 +27,15 @@ class ShgController extends Controller
      */
     public function index()
     {
-        return view('shg.dashboard');
+        $ordersMonth=Order::whereMonth('created_at', '=', date('m'))->get();
+        $ordersToday=Order::whereDay('created_at', '=', date('d'))->get();
+        $ordersAll=Order::paginate(10); 
+        //dd($ordersMonth);
+          //$d=$orders->whereDate('created_at', '=', date('d')); dd($d);
+        //$q->whereDay('created_at', '=', date('d'));
+        // $q->whereMonth('created_at', '=', date('m'));
+        // $q->whereYear('created_at', '=', date('Y'));
+        return view('shg.dashboard',compact('ordersMonth','ordersToday','ordersAll'));
     }
 
     public function products()
@@ -73,17 +81,18 @@ class ShgController extends Controller
              $product->block_id =Auth::guard('shg')->user()->block_id;
              $product->district_id =Auth::guard('shg')->user()->district_id;
              $product->save();
-        $files=new File;
+        //$files=new File;
 
         if($r->hasfile('filenames'))
          {
-            foreach($r->file('filenames') as $k=>$file)
+            foreach($r->filenames as $k=>$file)
             {
                 $name=$file->getClientOriginalName();
                 $file->move(public_path().'/files/', $name);  
-                $files->filename = $name;
-                $files->product_id = $product->id;  
-                $files->save();
+                $files['filename'] = $name;
+                $files['product_id'] = $product->id;  
+                File::Create($files);
+                //$files->save();
             }
          }
         if($product){

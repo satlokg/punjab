@@ -41,6 +41,7 @@ public function remove($id)
         $name = $prd->pname;
         $price = $prd->price;
         $qty = 1;
+        $shg = $prd->shg_id;
         $img = $prd->files[0]->filename;
 
         // $customAttributes = [
@@ -54,7 +55,7 @@ public function remove($id)
         //     ]
         // ];
 
-        $item = Cart::add($id, $name, $price, $qty, $img);
+        $item = Cart::add($id, $name, $price, $qty, $img,$shg);
         $notification = array(
                         'message' => 'Product successfully Aded', 
                         'alert-type' => 'success'

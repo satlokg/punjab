@@ -319,9 +319,10 @@
             <div class="product-wrap">
                 <div class="product-img">
                     <a href="{{route('product.detail',['id'=>$prd->id])}}">
-                        @foreach($prd->files as $file)
-                        <img class="default-img" height="300" src="{{url('public/files/').'/'.$file->filename}}" alt="">
-                        @endforeach
+                        
+                        <img class="default-img" height="300" src="{{url('public/files/').'/'.$prd->files['0']->filename}}" alt="">
+                        
+                        
                     </a>
                    
                     <div class="product-action">

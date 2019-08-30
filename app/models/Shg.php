@@ -19,4 +19,13 @@ class Shg extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+    public function order_product()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
+
+    public function order_product_month()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
 }

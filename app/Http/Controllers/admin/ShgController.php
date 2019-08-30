@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\models\Product;
 use App\models\File;
 use Auth;
+use DB;
 use App\models\Category;
 use App\models\Order;
 class ShgController extends Controller
@@ -29,13 +30,16 @@ class ShgController extends Controller
     {
         $ordersMonth=Order::whereMonth('created_at', '=', date('m'))->get();
         $ordersToday=Order::whereDay('created_at', '=', date('d'))->get();
-        $ordersAll=Order::paginate(10); 
-        //dd($ordersMonth);
-          //$d=$orders->whereDate('created_at', '=', date('d')); dd($d);
+        $ordersAll=Order::paginate(10);
+        $res['total_earning']=Auth::guard('shg')->user()->order_product->sum('sub_total');
+        $res['total_order']=Auth::guard('shg')->user()->order_product->sum('quantity');
+        $res['total_product']=Auth::guard('shg')->user()->products->count('id');
+        //dd($res);
+        //$d=$orders->whereDate('created_at', '=', date('d')); dd($d);
         //$q->whereDay('created_at', '=', date('d'));
         // $q->whereMonth('created_at', '=', date('m'));
         // $q->whereYear('created_at', '=', date('Y'));
-        return view('shg.dashboard',compact('ordersMonth','ordersToday','ordersAll'));
+        return view('shg.dashboard',compact('ordersMonth','ordersToday','ordersAll','res'));
     }
 
     public function products()

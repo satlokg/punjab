@@ -21,8 +21,8 @@
                     <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">CPU Traffic</span>
-                        <span class="info-box-number">90<small>%</small></span>
+                        <span class="info-box-text">Total Earning</span>
+                        <span class="info-box-number">{{$res['total_earning']}}</small></span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -34,8 +34,8 @@
                     <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Likes</span>
-                        <span class="info-box-number">41,410</span>
+                        <span class="info-box-text">Total Orders</span>
+                        <span class="info-box-number">{{$res['total_order']}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -51,8 +51,8 @@
                     <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Sales</span>
-                        <span class="info-box-number">760</span>
+                        <span class="info-box-text">Total Products</span>
+                        <span class="info-box-number">{{$res['total_product']}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>

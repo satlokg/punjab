@@ -23,7 +23,8 @@ class UserController extends Controller
     {
        $cat=$this->cat;
        $dist=$this->dist;
-       $orders = Order::where('user_id',Auth::user()->id)->with('products.shg','products.files')->paginate(10);
+       $orders = Order::where('user_id',Auth::user()->id)->with('product.shg','product.files')->paginate(10);
+       //dd($orders);
        return view('user.account',compact('cat','dist','orders'));
     }
   

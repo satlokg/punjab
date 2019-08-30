@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use DB;
 use App\models\Order;
 
 class OrderController extends Controller
@@ -23,8 +24,9 @@ class OrderController extends Controller
         $ordersMonth=Order::whereMonth('created_at', '=', date('m'))->get();
         $ordersToday=Order::whereDay('created_at', '=', date('d'))->get();
         $ordersAll=Order::paginate(10); 
-        //dd($ordersMonth);
-          //$d=$orders->whereDate('created_at', '=', date('d')); dd($d);
+        $res=OrderProduct::where('shg_id',Auth::guard('shg')->user()->id)->get();
+        dd($res);
+        //$d=$orders->whereDate('created_at', '=', date('d')); dd($d);
         //$q->whereDay('created_at', '=', date('d'));
         // $q->whereMonth('created_at', '=', date('m'));
         // $q->whereYear('created_at', '=', date('Y'));
@@ -71,6 +73,22 @@ class OrderController extends Controller
         $title="Canceled";
         $orders=Order::get(); //dd($orders[1]->pendingproducts);
         return view('user.canceled_order',compact('orders','title'));
+    }
+
+    public function productStatus($id,$status){
+       $res=DB::table('order_product')->where('id',$id)->update(['status'=>$status]);
+        if($res){
+                   $notification = array(
+                        'message' => 'Status updated', 
+                        'alert-type' => 'success'
+                    );
+                return back()->with($notification);
+            }
+            $notification = array(
+                        'message' => 'Sorry Status Not updated', 
+                        'alert-type' => 'danger'
+                    );
+         return back()->with($notification);
     }
    
 }

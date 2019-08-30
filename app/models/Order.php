@@ -13,7 +13,8 @@ class Order extends Model
 
     public function product()
     {
-        return $this->belongsToMany(Product::class, 'order_product');
+        return $this->belongsToMany(Product::class, 'order_product')
+        ->withPivot('id','quantity','status');
     }
     public function user()
     {
@@ -27,7 +28,7 @@ class Order extends Model
     public function products()
 	{
 	    return $this->belongsToMany(Product::class, 'order_product')
-	    	->withPivot('id','quantity','status')
+	    	->withPivot('id','quantity','status','sub_total')
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
 	    	->withTimestamps();
 	}
@@ -35,7 +36,7 @@ class Order extends Model
      public function pendingproducts()
     {
         return $this->belongsToMany(Product::class, 'order_product')
-            ->withPivot('id','quantity','status')
+            ->withPivot('id','quantity','status','sub_total')
             ->wherePivot('status',0)
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
             ->withTimestamps();
@@ -44,7 +45,7 @@ class Order extends Model
     public function acceptproducts()
     {
         return $this->belongsToMany('App\models\Product')
-            ->withPivot('id','quantity','status')
+            ->withPivot('id','quantity','status','sub_total')
             ->wherePivot('status',1)
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
             ->withTimestamps();
@@ -53,7 +54,7 @@ class Order extends Model
     public function deliveredproducts()
     {
         return $this->belongsToMany('App\models\Product')
-            ->withPivot('id','quantity','status')
+            ->withPivot('id','quantity','status','sub_total')
             ->wherePivot('status',3)
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
             ->withTimestamps();
@@ -62,7 +63,7 @@ class Order extends Model
     public function dispatchproducts()
     {
         return $this->belongsToMany('App\models\Product')
-            ->withPivot('id','quantity','status')
+            ->withPivot('id','quantity','status','sub_total')
             ->wherePivot('status',2)
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
             ->withTimestamps();
@@ -71,7 +72,7 @@ class Order extends Model
     public function canceledproducts()
     {
         return $this->belongsToMany('App\models\Product')
-            ->withPivot('id','quantity','status')
+            ->withPivot('id','quantity','status','sub_total')
             ->wherePivot('status',4)
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
             ->withTimestamps();
@@ -80,7 +81,7 @@ class Order extends Model
     public function todaysproducts()
     {
         return $this->belongsToMany('App\models\Product')
-            ->withPivot('id','quantity','status')
+            ->withPivot('id','quantity','status','sub_total')
             ->wherePivot('shg_id',Auth::guard('shg')->user()->id)
             ->whereDay('order_product.created_at', '=', date('M'))
             ->withTimestamps();

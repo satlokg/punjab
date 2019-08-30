@@ -35,7 +35,7 @@
 	            </tr>
 	        </thead>
 	        <tbody>
-		    @foreach($order->products as $product)
+		    @foreach($order->product as $product)
 		    <tr>
 	            <td class="product-thumbnail">
 	                <a href="#"><img alt="" class="" src="{{url('public/files')}}/{{$product->files[0]->filename}}"  height="50" ></a>

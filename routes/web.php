@@ -37,6 +37,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/shg', 'admin\AdminController@shg')->name('admin.shg');
     Route::get('/shg/add', 'admin\AdminController@shgAdd')->name('admin.shg.add');
     Route::post('/shg/add', 'admin\AdminController@shgAdd')->name('admin.shg.post');
+    Route::get('/shg/list/{district_id}', 'admin\AdminController@shgList')->name('admin.shg.list');
 
     //admin district
     Route::get('/district', 'admin\AdminController@district')->name('admin.district');

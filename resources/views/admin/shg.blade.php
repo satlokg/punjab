@@ -34,6 +34,9 @@
               <th>Village</th>
               <th>Block</th>
               <th>District</th>
+              <th>Total Product</th>
+              <th>Total Earning</th>
+              <th>Total order</th>
               <th>Action</th>
             </tr>
             @foreach($shgs as $key=>$shg)
@@ -44,6 +47,9 @@
               <td>{{$shg->village_name}}</td>
               <td>{{$shg->block_name}}</td>
               <td>{{$shg->dname}}</td>
+              <td>{{$shg->products->count('id')}}</td>
+              <td>{{$shg->order_product->sum('sub_total')}}</td>
+              <td>{{$shg->order_product->sum('quantity')}}</td>
               <td>
                   <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
                       <span class="fa fa-pencil"></span>
@@ -51,9 +57,9 @@
                   <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
                       <span class="fa fa-trash"></span>
                   </a>
-                  <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
+                  <!-- <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
                       Reports
-                  </a>
+                  </a> -->
               </td>
             </tr>
            @endforeach

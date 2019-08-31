@@ -25,7 +25,7 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{!! url('/dashboard') !!}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                    <li><a href="{!! url('/admin/dashboard') !!}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
                 </ul>
             </li>
             <li><a href="{!! url('admin/shg') !!}"><i class="fa fa-dashboard"></i> Pages</a></li>

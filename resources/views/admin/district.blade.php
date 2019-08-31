@@ -30,12 +30,21 @@
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Total Product</th>
+              <th>Total Earning</th>
+              <th>Total order</th>
+              <th>Total Shg</th>
               <th>Action</th>
             </tr>
-            @foreach($districts as $key=>$category)
+            @foreach($districts as $key=>$district)
             <tr>
                 <td>{{$key+1}}</td>
-              <td>{{$category->name}}</td>
+                <td>{{$district->name}}</td>
+                <td>{{$district->products->count('id')}}</td>
+                <td>{{$district->order_product->sum('sub_total')}}</td>
+                <td>{{$district->order_product->sum('quantity')}}</td>
+                <td>{{$district->shg->count('id')}}</td>
+              
               <td>
                   <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
                       <span class="fa fa-pencil"></span>
@@ -43,8 +52,8 @@
                   <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
                       <span class="fa fa-trash"></span>
                   </a>
-                  <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
-                      Reports
+                  <a target="_blank" href="{{route('admin.shg.list',['district_id'=>$district->id])}}" class="btn btn-info" title="Add Category">
+                      Shg List
                   </a>
               </td>
             </tr>

@@ -41,8 +41,12 @@ public function remove($id)
         $name = $prd->pname;
         $price = $prd->price;
         $qty = 1;
-        $shg = $prd->shg_id;
-        $img = $prd->files[0]->filename;
+        $shg =[
+                'shg_id' => $prd->shg_id,
+                'district_id' => $prd->district_id,
+                'img' => $prd->files[0]->filename,
+            ];
+        
 
         // $customAttributes = [
         //     'color_attr' => [
@@ -55,7 +59,7 @@ public function remove($id)
         //     ]
         // ];
 
-        $item = Cart::add($id, $name, $price, $qty, $img,$shg);
+        $item = Cart::add($id, $name, $price, $qty, $shg);
         $notification = array(
                         'message' => 'Product successfully Aded', 
                         'alert-type' => 'success'

@@ -155,7 +155,7 @@
                                     @foreach(Cart::getContent() as $item)
                                     <li class="single-shopping-cart">
                                         <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" class="img img-thumbnail" src="{{url('public/files')}}/{{$item->attributes[0]}}"></a>
+                                            <a href="#"><img alt="" class="img img-thumbnail" src="{{url('public/files')}}/{{$item->attributes['img']}}"></a>
                                         </div>
                                         <div class="shopping-cart-title">
                                             <h4><a href="#">{{$item->name}}</a></h4>

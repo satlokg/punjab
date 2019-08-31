@@ -19,4 +19,13 @@ class District extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    public function shg()
+    {
+        return $this->hasMany(Shg::class);
+    }
+    public function order_product()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
 }

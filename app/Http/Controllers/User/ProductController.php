@@ -55,8 +55,8 @@ class ProductController extends Controller
                 'address_id'=>$a->id,
                 'total'=>Cart::getTotal(),
             ]);
-            foreach (Cart::getContent() as $item) {
-                $order->products()->attach($order->id, ['quantity' => $item->quantity,'product_id'=>$item->id,'shg_id'=>$item->conditions,'sub_total'=>$item->getPriceSum()]);
+            foreach (Cart::getContent() as $item) { //dd($item);
+                $order->products()->attach($order->id, ['quantity' => $item->quantity,'product_id'=>$item->id,'shg_id'=>$item->attributes->shg_id,'district_id'=>$item->attributes->district_id,'sub_total'=>$item->getPriceSum()]);
             }
             Cart::clear();
             return redirect()->route('account');

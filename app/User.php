@@ -53,7 +53,7 @@ class User extends Authenticatable
         $this->last_name = $last_name;
     }
 
-    public function order()
+    public function orders()
     {
         return $this->hasMany('App\models\Order');
     }

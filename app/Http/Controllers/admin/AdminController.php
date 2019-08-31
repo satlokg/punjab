@@ -10,6 +10,8 @@ use App\models\Block;
 use App\models\Village;
 use App\models\Shg;
 use App\models\SubCategory;
+use App\models\Order;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -34,7 +36,7 @@ class AdminController extends Controller
 
     public function category()
     {
-        $cateories=Category::paginate(10);
+        $cateories=Category::paginate(25);
         return view('admin.category',compact('cateories'));
     }
 
@@ -84,7 +86,7 @@ class AdminController extends Controller
         ->leftjoin('districts','shgs.district_id','=','districts.id')
         ->leftjoin('blocks','shgs.block_id','=','blocks.id')
         ->orderBy('id','desc')
-        ->paginate(10); //dd($shgs);
+        ->paginate(25); //dd($shgs);
         
         return view('admin.shg',compact('shgs'));
     }
@@ -96,7 +98,7 @@ class AdminController extends Controller
         ->leftjoin('blocks','shgs.block_id','=','blocks.id')
         ->where('shgs.district_id',$district_id)
         ->orderBy('id','desc')
-        ->paginate(10); //dd($shgs);
+        ->paginate(25); //dd($shgs);
         
         return view('admin.shg',compact('shgs'));
     }
@@ -142,7 +144,7 @@ class AdminController extends Controller
 
     public function district()
     {
-        $districts=District::paginate(10);
+        $districts=District::paginate(25);
         return view('admin.district',compact('districts'));
     }
 
@@ -247,5 +249,15 @@ class AdminController extends Controller
             
         }
 
+    }
+
+    public function userList(){
+        $users=User::paginate(25);
+        return view('admin.user_list',compact('users'));
+    }
+
+    public function userOrders($user_id){
+        $orders=Order::where('user_id',$user_id)->paginate(10);
+        return view('admin.orders_list',compact('orders'));
     }
 }

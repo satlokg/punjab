@@ -33,7 +33,9 @@
             <li><a href="{!! url('admin/district') !!}"><i class="fa fa-dashboard"></i> District</a></li>
             <li><a href="{!! url('admin/shg') !!}"><i class="fa fa-dashboard"></i> Shg</a></li>
             <li><a href="{!! url('admin/user/list') !!}"><i class="fa fa-dashboard"></i> User List</a></li>
-            <li><a href="{!! url('admin/shg') !!}"><i class="fa fa-dashboard"></i> Banner</a></li>
+            <li><a href="{!! url('admin/banner') !!}"><i class="fa fa-dashboard"></i> Banner</a></li>
+            <li><a href="{!! url('admin/advertisment') !!}"><i class="fa fa-dashboard"></i> Advertisment</a></li>
+            <li><a href="{!! url('admin/collection') !!}"><i class="fa fa-dashboard"></i> Collection</a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

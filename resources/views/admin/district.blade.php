@@ -46,12 +46,12 @@
                 <td>{{$district->shg->count('id')}}</td>
               
               <td>
-                  <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
+                  <a href="{{route('admin.district.edit',['district_id'=>$district->id])}}" class="btn btn-success" title="Add Category">
                       <span class="fa fa-pencil"></span>
                   </a>
-                  <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
+                  <!-- <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
                       <span class="fa fa-trash"></span>
-                  </a>
+                  </a> -->
                   <a target="_blank" href="{{route('admin.shg.list',['district_id'=>$district->id])}}" class="btn btn-info" title="Add Category">
                       Shg List
                   </a>

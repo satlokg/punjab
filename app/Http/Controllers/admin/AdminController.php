@@ -11,6 +11,9 @@ use App\models\Village;
 use App\models\Shg;
 use App\models\SubCategory;
 use App\models\Order;
+use App\models\Banner;
+use App\models\Advertisment;
+use App\models\Callection;
 use App\User;
 
 class AdminController extends Controller
@@ -39,7 +42,11 @@ class AdminController extends Controller
         $cateories=Category::paginate(25);
         return view('admin.category',compact('cateories'));
     }
-
+    public function categoryEdit($id)
+    {
+        $category=Category::find($id);
+        return view('admin.category_edit',compact('category'));
+    }
 
     public function categoryAdd(Request $r)
     { 
@@ -51,7 +58,13 @@ class AdminController extends Controller
                 'name.required' => ' The category name field is required.',
                 
             ]);
-        $category = new Category();
+        if($r->id==''){
+             $category = new Category();
+        }
+       else{
+            $category = Category::find($r->id);
+       }
+      
         if($r->file()){
              $file = $r->file('pic');
               //Move Uploaded File
@@ -90,6 +103,17 @@ class AdminController extends Controller
         
         return view('admin.shg',compact('shgs'));
     }
+    public function shgEdit($id)
+    {
+        $shgs=Shg::select('shgs.*','villages.village_name','districts.name as dname','blocks.block_name')
+        ->leftjoin('villages','shgs.village_id','=','villages.id')
+        ->leftjoin('districts','shgs.district_id','=','districts.id')
+        ->leftjoin('blocks','shgs.block_id','=','blocks.id')
+        ->where('shgs.id',$id)
+        ->first(); //dd($shgs);
+        $dist=District::all();
+        return view('admin.shgEdit',compact('shgs','dist'));
+    }
     public function shgList($district_id)
     {
         $shgs=Shg::select('shgs.*','villages.village_name','districts.name as dname','blocks.block_name')
@@ -117,7 +141,13 @@ class AdminController extends Controller
                 'name.required' => ' The shg name field is required.',
                 
             ]);
-        $shg = new Shg();
+        
+        if($r->id==''){
+             $shg = new Shg();
+        }
+       else{
+            $shg = Shg::find($r->id);
+       }
         $shg->name = $r->name;
         $shg->contact = $r->contact;
         $shg->password = $r->password;
@@ -147,7 +177,11 @@ class AdminController extends Controller
         $districts=District::paginate(25);
         return view('admin.district',compact('districts'));
     }
-
+    public function districtEdit($id)
+    {
+        $districts=District::where('id',$id)->first();
+        return view('admin.district_edit',compact('districts'));
+    }
 
     public function districtAdd(Request $r)
     { 
@@ -158,7 +192,13 @@ class AdminController extends Controller
                 'name.required' => ' The District name field is required.',
                 
             ]);
-        $district = new District();
+        
+        if($r->id==''){
+            $district = new District();
+        }
+       else{
+            $district = District::find($r->id);
+       }
         $district->name = $r->name;
         $district->password = md5($r->password);
         $district->save();
@@ -183,7 +223,12 @@ class AdminController extends Controller
         $subcats=Category::where('id',$cat)->with('sub_categories')->first(); //dd($subcats->sub_categories);
         return view('admin.sub-category',compact('subcats'));
     }
-
+    public function subcategoryEdit($id,$cat)
+    {
+        $category=SubCategory::find($id); 
+        $cat=Category::where('id',$cat)->with('sub_categories')->first();
+        return view('admin.sub_category_edit',compact('category','cat'));
+    }
     public function subcategoryAdd(Request $r,$cat=null)
     {
         if(!empty($r->post())){
@@ -193,7 +238,13 @@ class AdminController extends Controller
                 'name.required' => ' The Sub category name field is required.',
                 
             ]);
-        $subcategory = new SubCategory();
+        //$subcategory = new SubCategory();
+        if($r->id==''){
+             $subcategory = new SubCategory();
+        }
+       else{
+            $subcategory = SubCategory::find($r->id);
+       }
         if($r->file()){
              $file = $r->file('pic');
               //Move Uploaded File
@@ -202,7 +253,7 @@ class AdminController extends Controller
               $file->move($destinationPath,$imageName);
               $subcategory->pic = $imageName;
         } 
-        $subcategory = new SubCategory();
+       // $subcategory = new SubCategory();
         $subcategory->category_id = $r->category_id;
         $subcategory->name = $r->name;
         $subcategory->desc = $r->desc;
@@ -258,6 +309,21 @@ class AdminController extends Controller
 
     public function userOrders($user_id){
         $orders=Order::where('user_id',$user_id)->paginate(10);
+        return view('admin.orders_list',compact('orders'));
+    }
+
+    public function banner(){
+        $banners=Banner::all();
+        return view('admin.banner',compact('orders'));
+    }
+
+    public function advertisment(){
+        $orders=Advertisment::paginate(10);
+        return view('admin.orders_list',compact('orders'));
+    }
+
+    public function callection(){
+        $orders=Callection::paginate(10);
         return view('admin.orders_list',compact('orders'));
     }
 }

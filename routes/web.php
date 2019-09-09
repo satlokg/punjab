@@ -23,18 +23,22 @@ Route::get('/menus', 'admin\MenuController@index')->name('menus');
 page
 */
 Route::get('/pages', 'admin\PageController@index')->name('pages');
+Route::get('/about', 'admin\PageController@about')->name('about');
+Route::get('/contact', 'admin\PageController@contact')->name('contact');
 
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/dashboard', 'admin\AdminController@index')->name('admin.dashboard');
-    //admin category
+    //admin category 
     Route::get('/category', 'admin\AdminController@category')->name('admin.category');
+    Route::get('/category/edit/{id}', 'admin\AdminController@categoryEdit')->name('admin.category.edit');
     Route::get('/category/add', 'admin\AdminController@categoryAdd')->name('admin.category.add');
     Route::post('/category/add', 'admin\AdminController@categoryAdd')->name('admin.category.post');
 
     //admin shg
     Route::get('/shg', 'admin\AdminController@shg')->name('admin.shg');
+    Route::get('/shg/edit/{id}', 'admin\AdminController@shgEdit')->name('admin.shg.edit');
     Route::get('/shg/add', 'admin\AdminController@shgAdd')->name('admin.shg.add');
     Route::post('/shg/add', 'admin\AdminController@shgAdd')->name('admin.shg.post');
     Route::get('/shg/list/{district_id}', 'admin\AdminController@shgList')->name('admin.shg.list');
@@ -43,14 +47,29 @@ Route::prefix('admin')->group(function() {
 
     //admin district
     Route::get('/district', 'admin\AdminController@district')->name('admin.district');
+    Route::get('/district/edit/{id}', 'admin\AdminController@districtEdit')->name('admin.district.edit');
     Route::get('/add/district', 'admin\AdminController@districtAdd')->name('admin.district.add');
     Route::post('/add/district', 'admin\AdminController@districtAdd')->name('admin.district.post');
 
-    //admin sub category
+    //admin sub category 
     Route::get('/subcategory/{cat}', 'admin\AdminController@subcategory')->name('admin.subcategory');
+     Route::get('/subcategory/edit/{id}/{cat}', 'admin\AdminController@subcategoryEdit')->name('admin.subcategory.edit');
     Route::get('/add/subcategory/{cat}', 'admin\AdminController@subcategoryAdd')->name('admin.subcategory.add');
     Route::post('/add/subcategory', 'admin\AdminController@subcategoryAdd')->name('admin.subcategory.post');
+    //admin banner
+    Route::get('/banner', 'admin\AdminController@banner')->name('admin.banner');
+    Route::get('/banner/add', 'admin\AdminController@bannerAdd')->name('admin.banner.add');
+    Route::post('/banner/add', 'admin\AdminController@bannerAdd')->name('admin.banner.post');
 
+    //admin advertisment
+    Route::get('/advertisment', 'admin\AdminController@advertisment')->name('admin.advertisment');
+    Route::get('/advertisment/add', 'admin\AdminController@advertismentAdd')->name('admin.advertisment.add');
+    Route::post('/advertisment/add', 'admin\AdminController@advertismentAdd')->name('admin.advertisment.post');
+
+    //admin collection
+    Route::get('/collection', 'admin\AdminController@callection')->name('admin.collection');
+    Route::get('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.add');
+    Route::post('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.post');
 
 
     Route::get('/ajax/{action}/{stat}', 'admin\AdminController@ajax');

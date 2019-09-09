@@ -51,12 +51,12 @@
               <td>{{$shg->order_product->sum('sub_total')}}</td>
               <td>{{$shg->order_product->sum('quantity')}}</td>
               <td>
-                  <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
+                  <a href="{{route('admin.shg.edit',['id'=>$shg->id])}}" class="btn btn-success" title="Add Category">
                       <span class="fa fa-pencil"></span>
                   </a>
-                  <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
+                  <!-- <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
                       <span class="fa fa-trash"></span>
-                  </a>
+                  </a> -->
                   <!-- <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
                       Reports
                   </a> -->

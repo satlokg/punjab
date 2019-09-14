@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="same-language-currency">
-                        <p>Call Us 3965410</p>
+                        <p>Call Us 98880 09606</p>
                     </div>
                 </div>
                 <div class="header-offer">

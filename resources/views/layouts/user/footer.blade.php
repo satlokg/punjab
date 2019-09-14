@@ -1,46 +1,33 @@
 <footer class="footer-area bg-gray pt-100 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-2 col-md-4 col-sm-4">
+            <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="copyright mb-30">
-                    <div class="footer-logo">
-                        <a href="index.html">
-                            <img alt="" src="assets/img/logo/logo.png">
-                        </a>
-                    </div>
-                    <p>© 2019 <a href="#">Flone</a>.<br> All Rights Reserved</p>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-sm-4">
-                <div class="footer-widget mb-30 ml-30">
-                    <div class="footer-title">
+                   
+                     <div class="footer-title">
                         <h3>ABOUT US</h3>
                     </div>
+                    <p>Welcome to Make In Punjab "ਮੇਕ ਇਨ ਪੰਜਾਬ", a Shopping Cart Application for the benefit of Self Help Groups .“Make in Punjab” is a platform to showcase various products created by Self Help Groups of Punjab. This initiative utilizes technology to enhance the visibility and marketability of the products created by small SHGs which hitherto were limited to the physical stalls of Craft Melas.</p>
+                    <p>© 2019 <a href="#"></a>.<br> All Rights Reserved</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-4">
+                <div class="footer-widget mb-30 ml-30">
+                   <div class="footer-title">
+                        <h3>USEFULL LINK</h3>
+                    </div>
                     <div class="footer-list">
                         <ul>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="#">Store location</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="#">Orders tracking</a></li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4 col-sm-4">
-                <div class="footer-widget mb-30 ml-50">
-                    <div class="footer-title">
-                        <h3>USEFUL LINKS</h3>
-                    </div>
-                    <div class="footer-list">
-                        <ul>
-                            <li><a href="#">Returns</a></li>
-                            <li><a href="#">Support Policy</a></li>
-                            <li><a href="#">Size guide</a></li>
-                            <li><a href="#">FAQs</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="footer-widget mb-30 ml-75">
                     <div class="footer-title">
@@ -56,7 +43,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="footer-widget mb-30 ml-75">
+                    <div class="footer-title">
+                        <h3>Contact US</h3>
+                    </div>
+                    <div class="footer-list">
+                        <ul>
+                            <li><a href="#">Address: JDC Office,PSRLM.</a></li>
+                            <li><a href="#">5th Floor Vikas Bhawan</a></li>
+                            <li><a href="#">Sec 62 ,Mohali</a></li>
+                            <li><a href="#">email: makeinpunjab@yahoo.com</a></li>
+                            <li><a href="#">Call us: <strong>98880 09606</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+
+
+            <!-- <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer-widget mb-30 ml-70">
                     <div class="footer-title">
                         <h3>SUBSCRIBE</h3>
@@ -78,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </footer>

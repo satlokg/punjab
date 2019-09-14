@@ -35,22 +35,22 @@
               <div class="carousel-item active">
                 <img src="{{url('public/sl/s1.jpg')}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5></h5>
-                  <p></p>
+                  <h5>Make In Punjab</h5>
+                  <p>Self Help Group</p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img src="{{url('public/sl/s2.jpg')}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5></h5>
-                  <p></p>
+                  <h5>Make In Punjab</h5>
+                  <p>Self Help Group</p>
                 </div>
               </div>
               <div class="carousel-item">
                 <img src="{{url('public/sl/s3.jpg')}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5></h5>
-                  <p></p>
+                  <h5>Make In Punjab</h5>
+                  <p>Self Help Group</p>
                 </div>
               </div>
             </div>

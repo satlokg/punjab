@@ -14,7 +14,7 @@
             <div class="col-lg-3 col-md-4 col-sm-4">
                 <div class="footer-widget mb-30 ml-30">
                    <div class="footer-title">
-                        <h3>USEFULL LINK</h3>
+                        <h3>USEFUL LINK</h3>
                     </div>
                     <div class="footer-list">
                         <ul>

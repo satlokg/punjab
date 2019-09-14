@@ -5,7 +5,7 @@
         <div class="breadcrumb-content text-center">
             <ul>
                 <li>
-                    <a href="#">Account Information</a>
+                    <a href="#">Contact Information</a>
                 </li>
             </ul>
         </div>

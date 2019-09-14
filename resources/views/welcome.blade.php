@@ -22,7 +22,7 @@
         </div>        
     </div>
 
-    <div class="col-sm-4 col-md-6 sidebar">
+    <div class="col-sm-4 col-md-9 sidebar">
         
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -33,21 +33,21 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{{url('public/upload/banner-top-1.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{url('public/sl/s1.jpg')}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5></h5>
                   <p></p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="{{url('public/upload/banner-top-2.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{url('public/sl/s2.jpg')}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5></h5>
                   <p></p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="{{url('public/upload/banner-top-3.jpg')}}" class="d-block w-100" alt="...">
+                <img src="{{url('public/sl/s3.jpg')}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                   <h5></h5>
                   <p></p>
@@ -70,7 +70,7 @@
     </div>
 
 
-    <div class="col-sm-4 col-md-3 sidebar">
+   <!--  <div class="col-sm-4 col-md-3 sidebar">
         <div class="list-group">
             <div class="card">
                 <img src="{{url('public/sl/p3.jpg')}}" class="card-img-top" alt="...">
@@ -83,7 +83,7 @@
             </div>
         </div> 
         
-    </div>
+    </div> -->
 
 
     </div>

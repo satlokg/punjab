@@ -61,8 +61,8 @@
                 <div class="single-banner mb-30">
                     <a href="product-details.html"><img src="{{url('public/sl/p3.jpg')}}" alt=""></a>
                     <div class="banner-content">
-                        <h3>Watches</h3>
-                        <h4>Starting at <span>$99.00</span></h4>
+                        <!-- <h3>Watches</h3>
+                        <h4>Starting at <span>$99.00</span></h4> -->
                         <a href="product-details.html"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
@@ -71,8 +71,8 @@
                 <div class="single-banner mb-30">
                     <a href="product-details.html"><img src="{{url('public/sl/p4.jpg')}}" alt=""></a>
                     <div class="banner-content">
-                        <h3>Plo Bag</h3>
-                        <h4>Starting at <span>$79.00</span></h4>
+                        <!-- <h3>Plo Bag</h3>
+                        <h4>Starting at <span>$79.00</span></h4> -->
                         <a href="product-details.html"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
@@ -81,8 +81,8 @@
                 <div class="single-banner mb-30">
                     <a href="product-details.html"><img src="{{url('public/sl/p5.jpg')}}" alt=""></a>
                     <div class="banner-content">
-                        <h3>Sunglass</h3>
-                        <h4>Starting at <span>$79.00</span></h4>
+                        <!-- <h3>Sunglass</h3>
+                        <h4>Starting at <span>$79.00</span></h4> -->
                         <a href="product-details.html"><i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>

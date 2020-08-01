@@ -71,6 +71,12 @@ Route::prefix('admin')->group(function() {
     Route::get('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.add');
     Route::post('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.post');
 
+    //village
+    Route::resource('village', 'admin\VillageController');
+
+    //block
+    Route::resource('block', 'admin\BlockController');
+
 
     Route::get('/ajax/{action}/{stat}', 'admin\AdminController@ajax');
 });

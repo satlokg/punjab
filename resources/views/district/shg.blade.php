@@ -20,7 +20,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">Categories</h3>
       <div class="pull-right">
-          <a href="{{route('admin.category.add')}}" class="btn btn-success" title="Add Category">
+          <a href="{{route('district.shg.add')}}" class="btn btn-success" title="Add Category">
               <span class="fa fa-plus"></span>
           </a>
       </div>
@@ -45,15 +45,15 @@
               <td>{{$shg->block_name}}</td>
               <td>{{$shg->dname}}</td>
               <td>
-                  <a href="route('admin.category.add')" class="btn btn-success" title="Add Category">
+                  <a href="{{route('district.shg.add')}}" class="btn btn-success" title="Add Category">
                       <span class="fa fa-pencil"></span>
                   </a>
-                  <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
+                  <!-- <a href="route('admin.category.add')" class="btn btn-danger" title="Add Category">
                       <span class="fa fa-trash"></span>
-                  </a>
-                  <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
+                  </a> -->
+                  <!-- <a href="route('admin.category.add')" class="btn btn-info" title="Add Category">
                       Reports
-                  </a>
+                  </a> -->
               </td>
             </tr>
            @endforeach

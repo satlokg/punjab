@@ -43,18 +43,33 @@ class DistrictController extends Controller
 
     public function shgAdd(Request $r)
     { 
-        if(!empty($r->post())){
+         if(!empty($r->post())){
         $this->validate($r,[
                 'name' => 'required|min:5|max:35',
+                'password' => 'required|min:5|max:10',
+                'contact' => 'required|min:10|max:10|unique:shgs',
+                'district_id' => 'required',
+                'block_id' => 'required',
+                'village_id' => 'required',
             ],[
-                'name.required' => ' The category name field is required.',
+                'name.required' => ' The shg name field is required.',
                 
             ]);
-        $category = new Shg();
-        $category->name = $r->name;
-        $category->desc = $r->desc;
-        $category->save();
-            if($category){
+        
+        if($r->id==''){
+             $shg = new Shg();
+        }
+       else{
+            $shg = Shg::find($r->id);
+       }
+        $shg->name = $r->name;
+        $shg->contact = $r->contact;
+        $shg->password = $r->password;
+        $shg->district_id = $r->district_id;
+        $shg->block_id = $r->block_id;
+        $shg->village_id = $r->village_id;
+        $shg->save();
+            if($shg){
                    $notification = array(
                         'message' => 'Shg successfully Aded', 
                         'alert-type' => 'success'
@@ -67,6 +82,7 @@ class DistrictController extends Controller
                     );
          return back()->with($notification);
         }
-        return view('district.shgForm');
+        $dist=District::all();
+        return view('district.shgForm',compact('dist'));
     }
 }

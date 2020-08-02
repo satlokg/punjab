@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-xl-2 col-lg-2 col-md-6 col-4">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="/">
                             <img alt="" src="{{url('public/assets/img/logo/logo.png')}}" class="img-thumbnail" width="150">
                         </a>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="main-menu">
                         <nav>
                             <ul>
-                                <li><a href="/punjab">Home </a>
+                                <li><a href="/">Home </a>
                                 </li>
                                 <li><a href="#"> District Shop <i class="fa fa-angle-down"></i> </a>
                                     <ul class="mega-menu">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
+use App\models\Block;
 
 class BlockController extends Controller
 {
@@ -14,7 +16,8 @@ class BlockController extends Controller
      */
     public function index()
     {
-        //
+        $blocks = Block::where('district_id',Auth::guard('district')->user()->id)->paginate(20); //dd($blocks);
+        return view('block.index',compact('blocks'));
     }
 
     /**
@@ -24,7 +27,7 @@ class BlockController extends Controller
      */
     public function create()
     {
-        //
+        return view('block.create');
     }
 
     /**
@@ -35,7 +38,17 @@ class BlockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $block = new Block();
+        $block->district_id = Auth::guard('district')->user()->id;
+        $block->block_name = $request->block_name;
+        $block->save();
+        if($block){
+                   $notification = array(
+                        'message' => 'Block successfully Aded', 
+                        'alert-type' => 'success'
+                    );
+                return redirect('district/block')->with($notification);
+            }
     }
 
     /**
@@ -57,7 +70,8 @@ class BlockController extends Controller
      */
     public function edit($id)
     {
-        //
+        $block = Block::find($id); 
+        return view('block.edit',compact('block'));
     }
 
     /**
@@ -69,7 +83,17 @@ class BlockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $block = Block::find($id); dd($id);
+        $block->district_id = Auth::guard('district')->user()->id;
+        $block->block_name = $request->block_name;
+        $block->save();
+        if($block){
+                   $notification = array(
+                        'message' => 'Block successfully Aded', 
+                        'alert-type' => 'success'
+                    );
+                return redirect('district/block')->with($notification);
+            }
     }
 
     /**

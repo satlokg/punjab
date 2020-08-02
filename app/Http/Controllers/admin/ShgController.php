@@ -68,8 +68,12 @@ class ShgController extends Controller
                 "category_id.required" => ' The category name field is required.',
                 "filenames.required" => ' The product pic field is required.',
             ]);
-
-             $product= new Product;
+             if ($r->id) {
+                $product= Product::find($r->id);
+             }else{
+                $product= new Product;
+             }
+             
              $product->category_id =$r->category_id;
              $product->pname =$r->pname;
              $product->pdesc =$r->pdesc;
@@ -109,5 +113,11 @@ class ShgController extends Controller
         }
         $categories=Category::all();
         return view('shg.product.add',compact('categories'));
+    }
+
+    public function productsEdit($id){
+        $product = Product::find($id); //dd($product);
+        $categories=Category::all();
+        return view('shg.product.edit',compact('product','categories'));
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.shg')
+@extends('layouts.district')
 
 @section('content')
     <div class="col">
@@ -19,7 +19,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">Products</h3>
       <div class="pull-right">
-          <a href="{{route('shg.product.add')}}" class="btn btn-success" title="Add Product">
+          <a href="{{route('block.create')}}" class="btn btn-success" title="Add Product">
               <span class="fa fa-plus"></span>
           </a>
       </div>
@@ -29,20 +29,14 @@
             <tr>
               <th>#</th>
               <th>Name</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Status</th>
               <th>Action</th>
             </tr>
-            @foreach($products as $key=>$product)
+            @foreach($blocks as $key=>$block)
             <tr>
-                <td>{{$key+1}}</td>
-              <td>{{$product->pname}}</td>
-              <td>{{$product->pdesc}}</td>
-              <td>{{$product->price}} / {{$product->unit}}</td>
-              <td>{{$product->status}}</td>
+              <td>{{$key+1}}</td>
+              <td>{{$block->block_name}}</td>
               <td>
-                  <a href="{{route('shg.product.edit',['id'=>$product->id])}}" class="btn btn-success" title="Add Product">
+                  <a href="{{route('block.edit',['id'=>$block->id])}}" class="btn btn-success" title="Add Product">
                       <span class="fa fa-pencil"></span>
                   </a>
                   <!-- <a href="route('admin.product.add')" class="btn btn-danger" title="Delete Product">
@@ -53,7 +47,7 @@
            @endforeach
           </table>
     </div>
-    {!!$products->render()!!}
+    {!!$blocks->render()!!}
     </div>
 </div>
 </section>

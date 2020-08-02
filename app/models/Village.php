@@ -11,8 +11,13 @@ class Village extends Model
         'village_name','district_id','block_id'
 
     ];
+     public $timestamps = false;
     public function products()
     {
         return $this->hasOne(Product::class);
+    }
+    public function block()
+    {
+        return $this->belongsTo(Block::class);
     }
 }

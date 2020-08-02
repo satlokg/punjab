@@ -11,7 +11,7 @@ class Block extends Model
         'block_name','district_id'
 
     ];
-    
+    public $timestamps = false;
     public function products()
     {
         return $this->hasOne(Product::class);

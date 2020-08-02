@@ -7,7 +7,7 @@
                 <img src="{!! url('public/dist/img/user2-160x160.jpg') !!}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>{{auth()->user()->name}}</p>
+                <p>{{auth()->guard('district')->user()->name}}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -29,6 +29,8 @@
                 </ul>
             </li>
             <li><a href="{!! url('/district/shg') !!}"><i class="fa fa-dashboard"></i> Shg</a></li>
+            <li><a href="{!! url('/district/village') !!}"><i class="fa fa-dashboard"></i> Village</a></li>
+            <li><a href="{!! url('/district/block') !!}"><i class="fa fa-dashboard"></i> Block</a></li>
             
         </ul>
     </section>

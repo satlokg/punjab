@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
+use App\models\Village;
+use App\models\Block;
 
 class VillageController extends Controller
 {
@@ -14,7 +17,8 @@ class VillageController extends Controller
      */
     public function index()
     {
-        //
+       $villages = Village::where('district_id',Auth::guard('district')->user()->id)->paginate(20); //dd($villages);
+        return view('village.index',compact('villages'));
     }
 
     /**
@@ -23,8 +27,9 @@ class VillageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    { 
+        $blocks = Block::where('district_id',Auth::guard('district')->user()->id)->get();
+        return view('village.create',compact('blocks'));
     }
 
     /**
@@ -35,7 +40,18 @@ class VillageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $village = new Village();
+        $village->district_id = Auth::guard('district')->user()->id;
+        $village->block_id = $request->block_id;
+         $village->village_name = $request->village_name;
+        $village->save();
+        if($village){
+                   $notification = array(
+                        'message' => 'Village successfully Aded', 
+                        'alert-type' => 'success'
+                    );
+                return redirect('district/village')->with($notification);
+            }
     }
 
     /**
@@ -57,7 +73,9 @@ class VillageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $village = Block::find($id); 
+        $blocks = Block::where('district_id',Auth::guard('district')->user()->id)->get();
+        return view('village.edit',compact('village','blocks'));
     }
 
     /**

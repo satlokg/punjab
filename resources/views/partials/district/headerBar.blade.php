@@ -216,7 +216,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="{!! url('public/dist/img/user2-160x160.jpg') !!}" class="user-image" alt="User Image">
-                        <span class="hidden-xs">{{auth()->user()->name}}</span>
+                        <span class="hidden-xs">{{auth()->guard('district')->user()->name}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -224,7 +224,7 @@
                             <img src="{!! url('public/dist/img/user2-160x160.jpg') !!}" class="img-circle" alt="User Image">
 
                             <p>
-                                {{auth()->user()->name}} - Web Developer
+                                {{auth()->guard('district')->user()->name}} - Web Developer
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>

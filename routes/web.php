@@ -71,11 +71,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.add');
     Route::post('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.post');
 
-    //village
-    Route::resource('village', 'admin\VillageController');
-
-    //block
-    Route::resource('block', 'admin\BlockController');
+    
 
 
     Route::get('/ajax/{action}/{stat}', 'admin\AdminController@ajax');
@@ -96,6 +92,7 @@ Route::prefix('shg')->group(function() {
     Route::get('/products', 'admin\ShgController@products')->name('shg.products');
     Route::get('/product/add', 'admin\ShgController@productsAdd')->name('shg.product.add');
     Route::post('/product/add', 'admin\ShgController@productsAdd')->name('shg.product.post');
+    Route::get('/product/edit/{id}', 'admin\ShgController@productsEdit')->name('shg.product.edit');
     //orders
     Route::get('/order/today', 'User\OrderController@today')->name('shg.today.order');
     Route::get('/order/month', 'User\OrderController@month')->name('shg.month.order');
@@ -115,6 +112,11 @@ Route::prefix('district')->group(function() {
     Route::get('/shg', 'admin\DistrictController@shg')->name('district.shg');
     Route::get('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.add');
     Route::post('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.post');
+    //village
+    Route::resource('village', 'admin\VillageController');
+
+    //block
+    Route::resource('block', 'admin\BlockController');
 });
 
 

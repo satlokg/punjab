@@ -111,12 +111,14 @@ Route::prefix('district')->group(function() {
 
     Route::get('/shg', 'admin\DistrictController@shg')->name('district.shg');
     Route::get('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.add');
+    Route::get('/shg/edit/{id}', 'admin\DistrictController@shgEdit')->name('district.shg.edit');
     Route::post('/shg/add', 'admin\DistrictController@shgAdd')->name('district.shg.post');
     //village
     Route::resource('village', 'admin\VillageController');
 
     //block
     Route::resource('block', 'admin\BlockController');
+    Route::get('/ajax/{action}/{stat}', 'admin\DistrictController@ajax');
 });
 
 

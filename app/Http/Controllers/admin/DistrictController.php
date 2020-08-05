@@ -4,7 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\models\District;
+use App\models\Block;
+use App\models\Village;
 use App\models\Shg;
 use Auth;
 
@@ -48,7 +49,6 @@ class DistrictController extends Controller
                 'name' => 'required|min:5|max:35',
                 'password' => 'required|min:5|max:10',
                 'contact' => 'required|min:10|max:10|unique:shgs',
-                'district_id' => 'required',
                 'block_id' => 'required',
                 'village_id' => 'required',
             ],[
@@ -65,7 +65,7 @@ class DistrictController extends Controller
         $shg->name = $r->name;
         $shg->contact = $r->contact;
         $shg->password = $r->password;
-        $shg->district_id = $r->district_id;
+        $shg->district_id = Auth::guard('district')->user()->id;
         $shg->block_id = $r->block_id;
         $shg->village_id = $r->village_id;
         $shg->save();
@@ -82,7 +82,38 @@ class DistrictController extends Controller
                     );
          return back()->with($notification);
         }
-        $dist=District::all();
-        return view('district.shgForm',compact('dist'));
+        $block=Block::where('district_id',Auth::guard('district')->user()->id)->get();
+        return view('district.shgForm',compact('block'));
+    }
+    public function ajax($action=null,$stat=null){ //dd($action);
+        switch($action){
+            case "getBlock": 
+               $item=Block::where('district_id',$stat)->get();
+                   $html= '<option value="">Select Block</option>';
+                    foreach($item as $items){
+                        $html.= '<option value='.$items->id.'>'.$items->block_name.'</option>';
+                    }
+
+              echo $html;
+            break;
+
+            case "getVill": 
+               $item=Village::where('block_id',$stat)->get();
+                   $html= '<option value="">Select Village</option>';
+                    foreach($item as $items){
+                        $html.= '<option value='.$items->id.'>'.$items->village_name.'</option>';
+                    }
+
+              echo $html;
+            break;
+            
+        }
+
+    }
+
+    public function shgEdit($r)
+    {
+        $shg = Shg::find($r);
+        return view('district.shgForm',compact('shg'));
     }
 }

@@ -43,27 +43,11 @@
                   <label  class="col-sm-4 control-label"> Select District</label>
 
                   <div class="col-sm-8">
-                    <select id="e1" class="form-control{{ $errors->has('district_id') ? ' is-invalid' : '' }}" name="district_id" onchange="populateBlock();">
-                      <option value="">Select District</option>
-                      @foreach($dist as $d)
-                          <option value="{{$d->id}}" {{$d->id==old('district_id')?"selected":""}}>{{$d->name}}</option>
+                    <select id="block" class="form-control{{ $errors->has('block_id') ? ' is-invalid' : '' }}" name="block_id" onchange="populateVill();">
+                      <option value="">Select block</option>
+                      @foreach($block as $d)
+                          <option value="{{$d->id}}" {{$d->id==old('block_id')?"selected":""}}>{{$d->block_name}}</option>
                       @endforeach
-                    </select>
-                  </div>
-                  @if ($errors->has('district_id'))
-                                <span class="invalid-feedback text-danger" role="alert">
-                                    <strong>{{ $errors->first('district_id') }}</strong>
-                                </span>
-                            @endif
-                </div>
-
-                <div class="form-group">
-                  <label class="col-sm-4 control-label"> Select Block</label>
-
-                  <div class="col-sm-8">
-                    <select id="e2" class="form-control{{ $errors->has('block_id') ? ' is-invalid' : '' }}" name="block_id" onchange="populateVill();">
-                      <option value="">Select Block</option>
-                      <optgroup id="block"></optgroup>
                     </select>
                   </div>
                   @if ($errors->has('block_id'))
@@ -73,11 +57,13 @@
                             @endif
                 </div>
 
+                
+
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-4 control-label"> Select Village</label>
 
                   <div class="col-sm-8">
-                    <select id="e3" class="form-control{{ $errors->has('village_id') ? ' is-invalid' : '' }}" name="village_id">
+                    <select id="villid" class="form-control{{ $errors->has('village_id') ? ' is-invalid' : '' }}" name="village_id">
                       <option value="">Select Village</option>
                       <optgroup id="vill"></optgroup>
                     </select>
@@ -167,7 +153,7 @@ function populateBlock(){
         }
 
 function populateVill(){
- var block = $('#e2').find(":selected").val();
+ var block = $('#block').find(":selected").val();
  var action = "getVill";
           var url = SITE_URL+"/ajax/"+action+"/"+block;
           $.ajax({

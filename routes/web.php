@@ -30,7 +30,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/dashboard', 'admin\AdminController@index')->name('admin.dashboard');
-    //admin category 
+    //admin category
     Route::get('/category', 'admin\AdminController@category')->name('admin.category');
     Route::get('/category/edit/{id}', 'admin\AdminController@categoryEdit')->name('admin.category.edit');
     Route::get('/category/add', 'admin\AdminController@categoryAdd')->name('admin.category.add');
@@ -51,7 +51,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/add/district', 'admin\AdminController@districtAdd')->name('admin.district.add');
     Route::post('/add/district', 'admin\AdminController@districtAdd')->name('admin.district.post');
 
-    //admin sub category 
+    //admin sub category
     Route::get('/subcategory/{cat}', 'admin\AdminController@subcategory')->name('admin.subcategory');
      Route::get('/subcategory/edit/{id}/{cat}', 'admin\AdminController@subcategoryEdit')->name('admin.subcategory.edit');
     Route::get('/add/subcategory/{cat}', 'admin\AdminController@subcategoryAdd')->name('admin.subcategory.add');
@@ -71,7 +71,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.add');
     Route::post('/collection/add', 'admin\AdminController@callectionAdd')->name('admin.collection.post');
 
-    
+
 
 
     Route::get('/ajax/{action}/{stat}', 'admin\AdminController@ajax');
@@ -125,7 +125,9 @@ Route::prefix('district')->group(function() {
 
 //user
 
-Route::get('/', 'User\WelcomeController@index')->name('welcome');
+Route::get('/old', 'User\WelcomeController@index')->name('welcome');
+Route::get('/', 'User\WelcomeController@index1')->name('welcome1');
+
 Route::get('/districts/{d}', 'User\WelcomeController@districts')->name('districts');
 Route::get('/category/{c}', 'User\WelcomeController@category')->name('category');
 Route::get('/shg-store/{c}', 'User\WelcomeController@shgstore')->name('shg.store');

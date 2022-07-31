@@ -23,6 +23,16 @@ class WelcomeController extends Controller
     	$products=Product::with('category','files')->orderBy('id','desc')->paginate(15); //dd($products[0]->category);
     	 return view('welcome',compact('cat','products','dist'));
     }
+    public function index1(){
+    	$cat=$this->cat;
+    	$dist=$this->dist;
+        $newArrivals=Product::with('category','files')->orderBy('created_at','desc')->limit(5)->get(); //dd($newArrivals);
+        $onSale=Product::with('category','files')->inRandomOrder()->limit(5)->get();
+        $mostView=Product::with('category','files')->inRandomOrder()->limit(5)->get();
+        $bestSeller=Product::with('category','files')->inRandomOrder()->limit(5)->get();
+    	$products=Product::with('category','files')->orderBy('id','desc')->paginate(15); //dd($products[0]->category);
+    	 return view('welcome1',compact('cat','products','newArrivals','onSale','mostView','bestSeller'));
+    }
     public function districts($d){
     	$cat=$this->cat;
     	$dist=$this->dist;

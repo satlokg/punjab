@@ -1,0 +1,37 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Uchen&display=swap');
+
+.hero-slider { background-image: url(./images/hegobg.jpg); background-position: center center; background-repeat: no-repeat; background-size: cover; }
+.navbar { margin-bottom: 0 !important; }
+.overSlider {position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;}
+    .carousel-control { background: none !important;  }
+    .list-main { margin-bottom:0;}
+    .itemContent {position: absolute;
+        top: 40%;
+        LEFT: 83PX;
+        }
+        .itemContent h3 {COLOR: #FFF;
+            TEXT-SHADOW: 2PX 1PX #66666620; font-family: 'Dancing Script', cursive; font-weight: 700; font-size: 4em;}
+            .itemContent p {COLOR: #FFF;
+                TEXT-SHADOW: 2PX 1PX #66666620;}
+
+   .small-banner h3 {    COLOR: #FFF;
+    TEXT-SHADOW: 2PX 1PX #66666620;
+    font-weight: 700;
+    font-size: 30px;}
+    .section-title { }
+    .section-title h2 {font-family: 'Dancing Script', cursive; font-weight: 700; font-size: 4em;
+        background-image: url('./images/sub-bg.png'); background-position: center center;
+        background-size: 40%; background-repeat: no-repeat; background-position: center bottom; }
+        .single-product .product-content h3 a {color: #ff0000}
+        .advBanners {    position: relative;
+            background: #333;
+            text-align: center; background-image: url('./images/honeyBg.jpg'); background-position: center center; background-size: cover;
+            background-color: #ff3000;
+            margin-bottom: 100px;}
+     .advBanners .section-title { padding:0;}

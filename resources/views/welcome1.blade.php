@@ -298,7 +298,7 @@
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
 									<h4 class="title"><a href="{{route('product.detail',['id'=>$os->id])}}">{{$os->pname}}</a></h4>
-									<p>{!!  substr(strip_tags($os->pdesc), 0, 150) !!}</p>
+									<p>{!!  substr(strip_tags($os->pdesc), 0, 15) !!}</p>
 									<p class="price with-discount">₹{{$os->price}}</p>
 								</div>
 							</div>
@@ -330,7 +330,7 @@
                         <div class="col-lg-6 col-md-6 col-12 no-padding">
                             <div class="content">
                                 <h4 class="title"><a href="{{route('product.detail',['id'=>$os->id])}}">{{$os->pname}}</a></h4>
-                                <p>{!!  substr(strip_tags($os->pdesc), 0, 150) !!}</p>
+                                <p>{!!  substr(strip_tags($os->pdesc), 0, 15) !!}</p>
                                 <p class="price with-discount">₹{{$os->price}}</p>
                             </div>
                         </div>
